@@ -34,7 +34,7 @@ public class RoboticDogTest {
 		int dryness = underTest.getDryness();
 		assertThat(dryness, is(0));
 	}
-	
+
 	@Test
 	public void shouldOilToReduceDryness() {
 		RoboticDog underTest = new RoboticDog("", "", 80, 100);
@@ -42,11 +42,18 @@ public class RoboticDogTest {
 		int dryness = underTest.getDryness();
 		assertThat(dryness, is(0));
 	}
-	
+
 	@Test
 	public void shouldHaveHealth100() {
-		RoboticDog underTest = new RoboticDog("","",80,100);
+		RoboticDog underTest = new RoboticDog("", "", 80, 100);
 		int health = underTest.getHealth();
-		assertThat(health,is(100));
+		assertThat(health, is(100));
+	}
+
+	@Test
+	public void shouldHaveHealth20() {
+		RoboticDog underTest = new RoboticDog("", "", 80, 20);
+		int health = underTest.getHealth();
+		assertThat(health, is(20));
 	}
 }

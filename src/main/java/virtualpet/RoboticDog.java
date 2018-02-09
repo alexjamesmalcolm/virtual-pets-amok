@@ -3,8 +3,9 @@ package virtualpet;
 public class RoboticDog {
 
 	private String name;
-	private int dryness;
 	private String description;
+	private int dryness;
+	private int health;
 
 	public RoboticDog(String name, String description) {
 		this.name = name;
@@ -12,12 +13,12 @@ public class RoboticDog {
 	}
 
 	public RoboticDog(String name, String description, int dryness, int health) {
+		this.health = health;
 		this.dryness = dryness;
 	}
 
 	public int getHealth() {
-		// TODO Auto-generated method stub
-		return 100;
+		return health;
 	}
 
 	public String getName() {
