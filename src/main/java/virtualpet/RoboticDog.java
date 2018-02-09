@@ -3,9 +3,11 @@ package virtualpet;
 public class RoboticDog {
 
 	private String name;
+	private String description;
 
-	public RoboticDog(String name) {
+	public RoboticDog(String name, String description) {
 		this.name = name;
+		this.description = description;
 	}
 
 	public String getName() {
@@ -13,7 +15,7 @@ public class RoboticDog {
 	}
 
 	public String getDescription() {
-		return "Stinky";
+		return description;
 	}
 
 }
