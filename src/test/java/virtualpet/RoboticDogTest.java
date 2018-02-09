@@ -24,7 +24,7 @@ public class RoboticDogTest {
 
 	@Test
 	public void shouldHaveDryness80() {
-		RoboticDog underTest = new RoboticDog("", "", 80, 100);
+		RoboticDog underTest = new RoboticDog("", "", 100, 0, 80);
 		int dryness = underTest.getDryness();
 		assertThat(dryness, is(80));
 	}
@@ -38,7 +38,7 @@ public class RoboticDogTest {
 
 	@Test
 	public void shouldOilToReduceDryness() {
-		RoboticDog underTest = new RoboticDog("", "", 80, 100);
+		RoboticDog underTest = new RoboticDog("", "", 100, 0, 80);
 		underTest.oil();
 		int dryness = underTest.getDryness();
 		assertThat(dryness, is(0));
@@ -46,21 +46,21 @@ public class RoboticDogTest {
 
 	@Test
 	public void shouldHaveHealth100() {
-		RoboticDog underTest = new RoboticDog("", "", 80, 100);
+		RoboticDog underTest = new RoboticDog("", "", 100, 0, 80);
 		int health = underTest.getHealth();
 		assertThat(health, is(100));
 	}
 
 	@Test
 	public void shouldHaveHealth20() {
-		RoboticDog underTest = new RoboticDog("", "", 80, 20);
+		RoboticDog underTest = new RoboticDog("", "", 20, 0, 80);
 		int health = underTest.getHealth();
 		assertThat(health, is(20));
 	}
 
 	@Test
 	public void shouldHaveTickIncreaseDryness() {
-		RoboticDog underTest = new RoboticDog("", "", 10, 50);
+		RoboticDog underTest = new RoboticDog("", "", 50, 0, 10);
 		underTest.tick();
 		int dryness = underTest.getDryness();
 		assertThat(dryness, is(10 + DRYNESS_PER_TICK));
@@ -69,8 +69,16 @@ public class RoboticDogTest {
 	@Test
 	public void shouldHaveBoredom10() {
 		int boredom = 10;
-		RoboticDog underTest = new RoboticDog("", "", 0, 0);
+		RoboticDog underTest = new RoboticDog("", "", 0, boredom, 0);
 		int returnedBoredom = underTest.getBoredom();
 		assertThat(returnedBoredom, is(10));
+	}
+
+	@Test
+	public void shouldHaveBoredom100() {
+		int boredom = 100;
+		RoboticDog underTest = new RoboticDog("", "", 0, boredom, 0);
+		int returnedBoredom = underTest.getBoredom();
+		assertThat(returnedBoredom, is(100));
 	}
 }

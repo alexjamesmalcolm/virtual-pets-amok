@@ -7,14 +7,16 @@ public class RoboticDog {
 	private String description;
 	private int dryness;
 	private int health;
+	private int boredom;
 
 	public RoboticDog(String name, String description) {
 		this.name = name;
 		this.description = description;
 	}
 
-	public RoboticDog(String name, String description, int dryness, int health) {
+	public RoboticDog(String name, String description, int health, int boredom, int dryness) {
 		this.health = health;
+		this.boredom = boredom;
 		this.dryness = dryness;
 	}
 
@@ -43,7 +45,7 @@ public class RoboticDog {
 	}
 
 	public int getBoredom() {
-		return 10;
+		return boredom;
 	}
 
 }
