@@ -13,6 +13,26 @@ public class RoboticDog {
 	private int health;
 	private int boredom;
 
+	public String getName() {
+		return name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public int getHealth() {
+		return health;
+	}
+
+	public int getBoredom() {
+		return boredom;
+	}
+
+	public int getDryness() {
+		return dryness;
+	}
+
 	public RoboticDog(String name, String description) {
 		this.name = name;
 		this.description = description;
@@ -29,22 +49,6 @@ public class RoboticDog {
 		this.dryness = dryness;
 	}
 
-	public int getHealth() {
-		return health;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public int getDryness() {
-		return dryness;
-	}
-
 	public void oil() {
 		dryness = 0;
 	}
@@ -54,11 +58,11 @@ public class RoboticDog {
 		boredom += BOREDOM_PER_TICK;
 	}
 
-	public int getBoredom() {
-		return boredom;
+	public void play() {
+		boredom = 0;
 	}
 
-	public void play() {
+	public void walk() {
 		boredom = 0;
 	}
 

@@ -135,4 +135,12 @@ public class RoboticDogTest {
 		int boredom = underTest.getBoredom();
 		assertThat(boredom, is(DEFAULT_DRYNESS + RoboticDog.BOREDOM_PER_TICK));
 	}
+	
+	@Test
+	public void shouldHaveWalkDecreaseBoredom() {
+		RoboticDog underTest = new RoboticDog("","");
+		underTest.walk();
+		int boredom = underTest.getBoredom();
+		assertThat(boredom, is(0));
+	}
 }
