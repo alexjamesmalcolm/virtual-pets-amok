@@ -21,4 +21,12 @@ public class CageTest {
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(69));
 	}
+	
+	@Test
+	public void shouldCleanCage() {
+		Cage underTest = new Cage(69);
+		underTest.clean();
+		int dirtyness = underTest.getDirtyness();
+		assertThat(dirtyness, is(0));
+	}
 }

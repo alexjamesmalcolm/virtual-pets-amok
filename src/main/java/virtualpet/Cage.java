@@ -13,4 +13,8 @@ public class Cage {
 		return dirtyness;
 	}
 
+	public void clean() {
+		dirtyness = 0;
+	}
+
 }
