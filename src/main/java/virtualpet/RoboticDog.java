@@ -2,6 +2,7 @@ package virtualpet;
 
 public class RoboticDog {
 
+	public static final int DRYNESS_PER_TICK = 1;
 	private String name;
 	private String description;
 	private int dryness;
@@ -35,6 +36,10 @@ public class RoboticDog {
 
 	public void oil() {
 		dryness = 0;
+	}
+
+	public void tick() {
+		dryness += DRYNESS_PER_TICK;
 	}
 
 }

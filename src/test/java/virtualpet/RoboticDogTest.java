@@ -2,6 +2,7 @@ package virtualpet;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static virtualpet.RoboticDog.DRYNESS_PER_TICK;
 
 import org.junit.Test;
 
@@ -55,5 +56,13 @@ public class RoboticDogTest {
 		RoboticDog underTest = new RoboticDog("", "", 80, 20);
 		int health = underTest.getHealth();
 		assertThat(health, is(20));
+	}
+
+	@Test
+	public void shouldHaveTickIncreaseDryness() {
+		RoboticDog underTest = new RoboticDog("", "", 10, 50);
+		underTest.tick();
+		int dryness = underTest.getDryness();
+		assertThat(dryness, is(10 + DRYNESS_PER_TICK));
 	}
 }
