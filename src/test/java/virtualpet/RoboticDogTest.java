@@ -95,4 +95,12 @@ public class RoboticDogTest {
 		String description = underTest.getDescription();
 		assertThat(description, is("Good boy"));
 	}
+
+	@Test
+	public void shouldHavePlayReduceBoredom() {
+		RoboticDog underTest = new RoboticDog("", "", 0, 100, 0);
+		underTest.play();
+		int boredom = underTest.getBoredom();
+		assertThat(boredom, is(0));
+	}
 }

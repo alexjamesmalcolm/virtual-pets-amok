@@ -50,4 +50,8 @@ public class RoboticDog {
 		return boredom;
 	}
 
+	public void play() {
+		boredom = 0;
+	}
+
 }
