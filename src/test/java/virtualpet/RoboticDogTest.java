@@ -23,7 +23,7 @@ public class RoboticDogTest {
 
 	@Test
 	public void shouldHaveDryness80() {
-		RoboticDog underTest = new RoboticDog("", "", 80);
+		RoboticDog underTest = new RoboticDog("", "", 80, 100);
 		int dryness = underTest.getDryness();
 		assertThat(dryness, is(80));
 	}
@@ -37,9 +37,16 @@ public class RoboticDogTest {
 	
 	@Test
 	public void shouldOilToReduceDryness() {
-		RoboticDog underTest = new RoboticDog("", "", 80);
+		RoboticDog underTest = new RoboticDog("", "", 80, 100);
 		underTest.oil();
 		int dryness = underTest.getDryness();
 		assertThat(dryness, is(0));
+	}
+	
+	@Test
+	public void shouldHaveHealth100() {
+		RoboticDog underTest = new RoboticDog("","",80,100);
+		int health = underTest.getHealth();
+		assertThat(health,is(100));
 	}
 }

@@ -1,13 +1,16 @@
 package virtualpet;
 
-public class RoboticDog extends Robotic {
+public class RoboticDog {
 
 	public RoboticDog(String name, String description) {
-		super(name, description);
 	}
 
-	public RoboticDog(String name, String description, int dryness) {
-		super(name, description, dryness);
+	public RoboticDog(String name, String description, int dryness, int health) {
+	}
+
+	public int getHealth() {
+		// TODO Auto-generated method stub
+		return 100;
 	}
 
 }
