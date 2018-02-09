@@ -2,6 +2,9 @@ package virtualpet;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static virtualpet.RoboticDog.DEFAULT_BOREDOM;
+import static virtualpet.RoboticDog.DEFAULT_DRYNESS;
+import static virtualpet.RoboticDog.DEFAULT_HEALTH;
 import static virtualpet.RoboticDog.DRYNESS_PER_TICK;
 
 import org.junit.Test;
@@ -31,7 +34,7 @@ public class RoboticDogTest {
 
 	@Test
 	public void shouldHaveDryness0() {
-		RoboticDog underTest = new RoboticDog("", "");
+		RoboticDog underTest = new RoboticDog("", "", 0, 0, 0);
 		int dryness = underTest.getDryness();
 		assertThat(dryness, is(0));
 	}
@@ -108,13 +111,28 @@ public class RoboticDogTest {
 	public void shouldHaveDefaultHealth() {
 		RoboticDog underTest = new RoboticDog("", "");
 		int health = underTest.getHealth();
-		assertThat(health, is(RoboticDog.DEFAULT_HEALTH));
+		assertThat(health, is(DEFAULT_HEALTH));
 	}
 
 	@Test
 	public void shouldHaveDefaultBoredom() {
 		RoboticDog underTest = new RoboticDog("", "");
 		int boredom = underTest.getBoredom();
-		assertThat(boredom, is(RoboticDog.DEFAULT_BOREDOM));
+		assertThat(boredom, is(DEFAULT_BOREDOM));
+	}
+
+	@Test
+	public void shouldHaveDefaultDryness() {
+		RoboticDog underTest = new RoboticDog("", "");
+		int dryness = underTest.getDryness();
+		assertThat(dryness, is(DEFAULT_DRYNESS));
+	}
+
+	@Test
+	public void shouldHaveTickIncreaseBoredom() {
+		RoboticDog underTest = new RoboticDog("", "");
+		underTest.tick();
+		int boredom = underTest.getBoredom();
+		assertThat(boredom, is(DEFAULT_DRYNESS + RoboticDog.BOREDOM_PER_TICK));
 	}
 }

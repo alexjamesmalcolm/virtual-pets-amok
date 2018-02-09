@@ -5,6 +5,8 @@ public class RoboticDog {
 	static final int DRYNESS_PER_TICK = 1;
 	static final int DEFAULT_HEALTH = 100;
 	static final int DEFAULT_BOREDOM = 20;
+	static final int DEFAULT_DRYNESS = 20;
+	static final int BOREDOM_PER_TICK = 1;
 	private String name;
 	private String description;
 	private int dryness;
@@ -16,6 +18,7 @@ public class RoboticDog {
 		this.description = description;
 		health = DEFAULT_HEALTH;
 		boredom = DEFAULT_BOREDOM;
+		dryness = DEFAULT_DRYNESS;
 	}
 
 	public RoboticDog(String name, String description, int health, int boredom, int dryness) {
@@ -48,6 +51,7 @@ public class RoboticDog {
 
 	public void tick() {
 		dryness += DRYNESS_PER_TICK;
+		boredom += BOREDOM_PER_TICK;
 	}
 
 	public int getBoredom() {
