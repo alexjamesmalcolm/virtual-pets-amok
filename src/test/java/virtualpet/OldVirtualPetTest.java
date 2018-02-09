@@ -13,7 +13,7 @@ import static virtualpet.VirtualPet.THIRST_PER_TICK;
 import org.junit.Before;
 import org.junit.Test;
 
-public class VirtualPetTest {
+public class OldVirtualPetTest {
 
 	private VirtualPet tommy;
 	private VirtualPet joey;
