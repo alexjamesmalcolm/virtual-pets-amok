@@ -103,4 +103,18 @@ public class RoboticDogTest {
 		int boredom = underTest.getBoredom();
 		assertThat(boredom, is(0));
 	}
+
+	@Test
+	public void shouldHaveDefaultHealth() {
+		RoboticDog underTest = new RoboticDog("", "");
+		int health = underTest.getHealth();
+		assertThat(health, is(RoboticDog.DEFAULT_HEALTH));
+	}
+
+	@Test
+	public void shouldHaveDefaultBoredom() {
+		RoboticDog underTest = new RoboticDog("", "");
+		int boredom = underTest.getBoredom();
+		assertThat(boredom, is(RoboticDog.DEFAULT_BOREDOM));
+	}
 }

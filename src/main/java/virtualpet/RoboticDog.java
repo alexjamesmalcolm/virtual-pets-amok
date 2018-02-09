@@ -2,7 +2,9 @@ package virtualpet;
 
 public class RoboticDog {
 
-	public static final int DRYNESS_PER_TICK = 1;
+	static final int DRYNESS_PER_TICK = 1;
+	static final int DEFAULT_HEALTH = 100;
+	static final int DEFAULT_BOREDOM = 20;
 	private String name;
 	private String description;
 	private int dryness;
@@ -12,6 +14,8 @@ public class RoboticDog {
 	public RoboticDog(String name, String description) {
 		this.name = name;
 		this.description = description;
+		health = DEFAULT_HEALTH;
+		boredom = DEFAULT_BOREDOM;
 	}
 
 	public RoboticDog(String name, String description, int health, int boredom, int dryness) {
