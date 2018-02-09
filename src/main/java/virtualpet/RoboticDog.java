@@ -42,4 +42,8 @@ public class RoboticDog {
 		dryness += DRYNESS_PER_TICK;
 	}
 
+	public int getBoredom() {
+		return 10;
+	}
+
 }

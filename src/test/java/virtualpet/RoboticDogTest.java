@@ -65,4 +65,12 @@ public class RoboticDogTest {
 		int dryness = underTest.getDryness();
 		assertThat(dryness, is(10 + DRYNESS_PER_TICK));
 	}
+
+	@Test
+	public void shouldHaveBoredom10() {
+		int boredom = 10;
+		RoboticDog underTest = new RoboticDog("", "", 0, 0);
+		int returnedBoredom = underTest.getBoredom();
+		assertThat(returnedBoredom, is(10));
+	}
 }
