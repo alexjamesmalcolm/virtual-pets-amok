@@ -1,21 +1,13 @@
 package virtualpet;
 
-public class RoboticDog {
-
-	private String name;
-	private String description;
+public class RoboticDog extends VirtualPet{
 
 	public RoboticDog(String name, String description) {
-		this.name = name;
-		this.description = description;
+		super(name, description);
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getDescription() {
-		return description;
+	public int getDryness() {
+		return 80;
 	}
 
 }
