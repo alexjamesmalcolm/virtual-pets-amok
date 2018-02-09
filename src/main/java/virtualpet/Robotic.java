@@ -2,7 +2,7 @@ package virtualpet;
 
 public abstract class Robotic extends VirtualPet {
 
-	private int dryness;
+	protected int dryness;
 
 	public Robotic(String name, String description) {
 		super(name, description);
@@ -15,6 +15,10 @@ public abstract class Robotic extends VirtualPet {
 
 	public int getDryness() {
 		return dryness;
+	}
+
+	public void oil() {
+		dryness = 0;
 	}
 
 }

@@ -34,4 +34,12 @@ public class RoboticDogTest {
 		int dryness = underTest.getDryness();
 		assertThat(dryness, is(0));
 	}
+	
+	@Test
+	public void shouldOilToReduceDryness() {
+		RoboticDog underTest = new RoboticDog("", "", 80);
+		underTest.oil();
+		int dryness = underTest.getDryness();
+		assertThat(dryness, is(0));
+	}
 }
