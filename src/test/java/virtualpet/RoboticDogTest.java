@@ -81,4 +81,18 @@ public class RoboticDogTest {
 		int returnedBoredom = underTest.getBoredom();
 		assertThat(returnedBoredom, is(100));
 	}
+
+	@Test
+	public void shouldHaveNameAlan() {
+		RoboticDog underTest = new RoboticDog("Alan", "", 0, 0, 0);
+		String name = underTest.getName();
+		assertThat(name, is("Alan"));
+	}
+
+	@Test
+	public void shouldHaveDescriptionGoodBoy() {
+		RoboticDog underTest = new RoboticDog("", "Good boy", 0, 0, 0);
+		String description = underTest.getDescription();
+		assertThat(description, is("Good boy"));
+	}
 }
