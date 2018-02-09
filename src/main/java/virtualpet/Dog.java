@@ -1,12 +1,10 @@
 package virtualpet;
 
-public class Dog {
+public class Dog extends VirtualPet{
 
-	public Dog(String name) {
-	}
 
-	public String getName() {
-		return "Joey";
+	public Dog(String name, String description) {
+		super(name, description);
 	}
 
 }
