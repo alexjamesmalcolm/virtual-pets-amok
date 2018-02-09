@@ -12,4 +12,8 @@ public class RoboticDog {
 		return name;
 	}
 
+	public String getDescription() {
+		return "Stinky";
+	}
+
 }

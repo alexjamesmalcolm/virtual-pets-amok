@@ -20,4 +20,11 @@ public class RoboticDogTest {
 		String name = underTest.getName();
 		assertThat(name, is("Phil"));
 	}
+	
+	@Test
+	public void shouldHaveDescriptionStinky() {
+		RoboticDog underTest = new RoboticDog("");
+		String description = underTest.getDescription();
+		assertThat(description, is("Stinky"));
+	}
 }
