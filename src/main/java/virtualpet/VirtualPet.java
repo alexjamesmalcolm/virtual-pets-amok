@@ -1,6 +1,6 @@
 package virtualpet;
 
-public class VirtualPet {
+public abstract class VirtualPet {
 	
 	private String name;
 	private String description;
