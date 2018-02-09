@@ -9,8 +9,15 @@ public class RoboticDogTest {
 	
 	@Test
 	public void shouldHaveNameJoey() {
-		RoboticDog underTest = new RoboticDog();
+		RoboticDog underTest = new RoboticDog("Joey");
 		String name = underTest.getName();
 		assertThat(name, is("Joey"));
+	}
+	
+	@Test
+	public void shouldHaveNamePhil() {
+		RoboticDog underTest = new RoboticDog("Phil");
+		String name = underTest.getName();
+		assertThat(name, is("Phil"));
 	}
 }

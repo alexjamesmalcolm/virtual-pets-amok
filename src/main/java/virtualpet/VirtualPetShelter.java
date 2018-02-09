@@ -6,17 +6,17 @@ import java.util.TreeMap;
 
 public class VirtualPetShelter {
 
-	private Map<String, VirtualPet> pets = new TreeMap<String, VirtualPet>();
+	private Map<String, OldVirtualPet> pets = new TreeMap<String, OldVirtualPet>();
 
-	public void addPet(VirtualPet pet) {
+	public void addPet(OldVirtualPet pet) {
 		pets.put(pet.getName(), pet);
 	}
 
-	public VirtualPet getPet(String name) {
+	public OldVirtualPet getPet(String name) {
 		return pets.get(name);
 	}
 
-	public Collection<VirtualPet> pets() {
+	public Collection<OldVirtualPet> pets() {
 		return pets.values();
 	}
 
@@ -46,7 +46,7 @@ public class VirtualPetShelter {
 			return "There are no pets in the shelter.";
 		}
 		String message = "Name\t|Hunger\t|Thirst\t|Boredom\n--------|-------|-------|-------\n";
-		for (VirtualPet pet : pets()) {
+		for (OldVirtualPet pet : pets()) {
 			message += pet.getName() + "\t|" + pet.getHunger() + "\t|" + pet.getThirst() + "\t|" + pet.getBoredom()
 					+ "\n";
 		}
@@ -59,7 +59,7 @@ public class VirtualPetShelter {
 
 	public String getNames() {
 		String message = "";
-		for (VirtualPet pet : pets()) {
+		for (OldVirtualPet pet : pets()) {
 			message += "[" + pet.getName() + "] " + pet.getDescription() + "\n";
 		}
 		return message;

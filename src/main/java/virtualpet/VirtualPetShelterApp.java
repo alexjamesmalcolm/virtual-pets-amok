@@ -43,7 +43,7 @@ public class VirtualPetShelterApp {
 				String name = input.nextLine();
 				System.out.println("What's the description of the pet you're admitting?");
 				String description = input.nextLine();
-				shelter.addPet(new VirtualPet(name, description));
+				shelter.addPet(new OldVirtualPet(name, description));
 			} else if (choice.equals("6")) {
 				break;
 			}

@@ -1,6 +1,6 @@
 package virtualpet;
 
-public class VirtualPet {
+public class OldVirtualPet {
 
 	public static final int HUNGER_PER_TICK = 8;
 	public static final int THIRST_PER_TICK = 8;
@@ -15,11 +15,11 @@ public class VirtualPet {
 	private int thirst;
 	private int boredom;
 
-	public VirtualPet(String name, String description) {
+	public OldVirtualPet(String name, String description) {
 		this(name, description, DEFAULT_HUNGER, DEFAULT_THIRST, DEFAULT_BOREDOM);
 	}
 
-	public VirtualPet(String name, String description, int hunger, int thirst, int boredom) {
+	public OldVirtualPet(String name, String description, int hunger, int thirst, int boredom) {
 		this.name = name;
 		this.description = description;
 		this.hunger = hunger;

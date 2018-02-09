@@ -15,20 +15,20 @@ import org.junit.Test;
 public class VirtualPetShelterTest {
 
 	private VirtualPetShelter petShelter;
-	private VirtualPet tommy;
-	private VirtualPet joey;
+	private OldVirtualPet tommy;
+	private OldVirtualPet joey;
 
 	@Before
 	public void setup() {
 		petShelter = new VirtualPetShelter();
-		tommy = new VirtualPet("Tommy", "Boy this one stinks");
-		joey = new VirtualPet("Joey", "That's one cool pet");
+		tommy = new OldVirtualPet("Tommy", "Boy this one stinks");
+		joey = new OldVirtualPet("Joey", "That's one cool pet");
 	}
 
 	@Test
 	public void shouldAddVirtualPet() {
 		petShelter.addPet(tommy);
-		VirtualPet returnedPet = petShelter.getPet("Tommy");
+		OldVirtualPet returnedPet = petShelter.getPet("Tommy");
 		assertThat(returnedPet, is(tommy));
 	}
 
@@ -36,7 +36,7 @@ public class VirtualPetShelterTest {
 	public void shouldReturnAllPets() {
 		petShelter.addPet(tommy);
 		petShelter.addPet(joey);
-		Collection<VirtualPet> pets = petShelter.pets();
+		Collection<OldVirtualPet> pets = petShelter.pets();
 		assertThat(pets, containsInAnyOrder(joey, tommy));
 	}
 
@@ -45,7 +45,7 @@ public class VirtualPetShelterTest {
 		petShelter.addPet(tommy);
 		petShelter.addPet(joey);
 		petShelter.adoptPet(joey.getName());
-		Collection<VirtualPet> pets = petShelter.pets();
+		Collection<OldVirtualPet> pets = petShelter.pets();
 		assertThat(pets, contains(tommy));
 	}
 
@@ -79,12 +79,12 @@ public class VirtualPetShelterTest {
 		petShelter.addPet(tommy);
 		petShelter.addPet(joey);
 		petShelter.tick();
-		Collection<VirtualPet> pets = petShelter.pets();
-		VirtualPet expectedTommy = new VirtualPet("Tommy", "Boy this one stinks");
-		VirtualPet expectedJoey = new VirtualPet("Joey", "That's one cool pet");
+		Collection<OldVirtualPet> pets = petShelter.pets();
+		OldVirtualPet expectedTommy = new OldVirtualPet("Tommy", "Boy this one stinks");
+		OldVirtualPet expectedJoey = new OldVirtualPet("Joey", "That's one cool pet");
 		expectedTommy.tick();
 		expectedJoey.tick();
-		for (VirtualPet pet : pets) {
+		for (OldVirtualPet pet : pets) {
 			assertThat(pet.getHunger(), anyOf(is(expectedTommy.getHunger()), is(expectedJoey.getHunger())));
 		}
 	}
@@ -106,7 +106,7 @@ public class VirtualPetShelterTest {
 	public void shouldHaveToStringForThreePets() {
 		petShelter.addPet(joey);
 		petShelter.addPet(tommy);
-		petShelter.addPet(new VirtualPet("Dee dee", "", 20, 30, 60));
+		petShelter.addPet(new OldVirtualPet("Dee dee", "", 20, 30, 60));
 		String line1 = "Name\t|Hunger\t|Thirst\t|Boredom\n";
 		String line2 = "--------|-------|-------|-------\n";
 		String line3 = "Dee dee\t|20\t|30\t|60\n";
