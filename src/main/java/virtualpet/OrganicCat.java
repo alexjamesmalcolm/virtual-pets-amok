@@ -7,4 +7,8 @@ public class OrganicCat extends Organic{
 		this.description = description;
 	}
 
+	public OrganicCat(String name, String description, int boredom) {
+		this.boredom = boredom;
+	}
+
 }
