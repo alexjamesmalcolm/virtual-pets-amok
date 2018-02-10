@@ -75,7 +75,7 @@ public class OrganicDog extends Pet {
 	}
 
 	public void soilCage() {
-		cage.addWaste(50);
+		cage.addWaste((waste - 100) / WASTE_TO_DIRTYNESS);
 	}
 
 }

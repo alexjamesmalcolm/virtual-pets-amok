@@ -8,6 +8,7 @@ import static virtualpet.OrganicDog.HUNGER_TO_THIRST;
 import static virtualpet.OrganicDog.HUNGER_TO_WASTE;
 import static virtualpet.OrganicDog.THIRST_PER_TICK;
 import static virtualpet.OrganicDog.THIRST_TO_WASTE;
+import static virtualpet.OrganicDog.WASTE_TO_DIRTYNESS;
 import static virtualpet.Pet.BOREDOM_PER_TICK;
 import static virtualpet.Pet.DEFAULT_HEALTH;
 
@@ -145,10 +146,19 @@ public class OrganicDogTest {
 	}
 
 	@Test
-	public void shouldHaveSoilCageIncreaseCageDirtyness() {
+	public void shouldHaveSoilCageIncreaseCageDirtyness150() {
 		OrganicDog underTest = new OrganicDog(0, 0, 0, 150, new Cage());
 		underTest.soilCage();
 		int dirtyness = underTest.getDirtyness();
-		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + (150 - 100) / OrganicDog.WASTE_TO_DIRTYNESS));
+		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + (150 - 100) / WASTE_TO_DIRTYNESS));
 	}
+	
+	@Test
+	public void shouldHaveSoilCageIncreaseCageDirtyness120() {
+		OrganicDog underTest = new OrganicDog(0,0,0,120, new Cage());
+		underTest.soilCage();
+		int dirtyness = underTest.getDirtyness();
+		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + (120 - 100) / WASTE_TO_DIRTYNESS));
+	}
+	
 }
