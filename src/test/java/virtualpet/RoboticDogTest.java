@@ -159,4 +159,12 @@ public class RoboticDogTest {
 		int health = underTest.getHealth();
 		assertThat(health, is (70));
 	}
+	
+	@Test
+	public void shouldHaveTickIncreaseHealthIfNothingsWrong() {
+		RoboticDog underTest = new RoboticDog("", "", 50, 100, 100);
+		underTest.tick();
+		int health = underTest.getHealth();
+		assertThat(health, is(100));
+	}
 }

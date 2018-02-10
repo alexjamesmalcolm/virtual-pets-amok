@@ -3,11 +3,7 @@ package virtualpet;
 public class RoboticDog extends Robotic implements Walkable {
 
 	public RoboticDog(String name, String description) {
-		this.name = name;
-		this.description = description;
-		health = DEFAULT_HEALTH;
-		boredom = DEFAULT_BOREDOM;
-		dryness = DEFAULT_DRYNESS;
+		this(name, description, DEFAULT_HEALTH, DEFAULT_BOREDOM, DEFAULT_DRYNESS);
 	}
 
 	public RoboticDog(String name, String description, int health, int boredom, int dryness) {
