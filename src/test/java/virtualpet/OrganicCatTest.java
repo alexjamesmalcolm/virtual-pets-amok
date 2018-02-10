@@ -23,22 +23,29 @@ public class OrganicCatTest {
 
 	@Test
 	public void shouldHaveBoredom() {
-		OrganicCat underTest = new OrganicCat("Joey", "Cool", 10, 20);
+		OrganicCat underTest = new OrganicCat("Joey", "Cool", 10, 20, 30);
 		int boredom = underTest.getBoredom();
 		assertThat(boredom, is(10));
 	}
 
 	@Test
 	public void shouldHaveCustomName() {
-		OrganicCat underTest = new OrganicCat("Joey", "Cool", 10, 20);
+		OrganicCat underTest = new OrganicCat("Joey", "Cool", 10, 20, 30);
 		String name = underTest.getName();
 		assertThat(name, is("Joey"));
 	}
 
 	@Test
 	public void shouldHaveHunger() {
-		OrganicCat underTest = new OrganicCat("Joey", "Cool", 10, 20);
+		OrganicCat underTest = new OrganicCat("Joey", "Cool", 10, 20, 30);
 		int hunger = underTest.getHunger();
 		assertThat(hunger, is(20));
+	}
+	
+	@Test
+	public void shouldHaveThirst() {
+		OrganicCat underTest = new OrganicCat("Joey", "Cool", 10, 20, 30);
+		int thirst = underTest.getThirst();
+		assertThat(thirst, is(30));
 	}
 }
