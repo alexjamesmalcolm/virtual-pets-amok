@@ -23,6 +23,10 @@ public class OrganicDog extends Organic {
 		this.cage = cage;
 	}
 
+	public OrganicDog(String name, String description) {
+		this(name, description, 0, 0, 0, 0, new Cage());
+	}
+
 	public void cleanCage() {
 		cage.clean();
 	}

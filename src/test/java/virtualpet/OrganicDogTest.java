@@ -182,5 +182,11 @@ public class OrganicDogTest {
 		String description = underTest.getDescription();
 		assertThat(description, is("Cool"));
 	}
-
+	
+	@Test
+	public void shouldHaveDefaultsConstructorName() {
+		OrganicDog underTest = new OrganicDog("Joey", "Cool");
+		String name = underTest.getName();
+		assertThat(name, is("Joey"));
+	}
 }
