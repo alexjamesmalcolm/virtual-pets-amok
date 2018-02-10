@@ -10,7 +10,6 @@ public class OrganicDog extends Pet {
 	private int hunger;
 	private int thirst;
 	private int waste;
-	private Cage cage;
 
 	public int getHunger() {
 		return hunger;
@@ -30,7 +29,6 @@ public class OrganicDog extends Pet {
 		this.thirst = thirst;
 		this.boredom = boredom;
 		this.waste = waste;
-		this.cage = new Cage();
 	}
 
 	public void feed() {
@@ -60,17 +58,4 @@ public class OrganicDog extends Pet {
 		thirst += THIRST_PER_TICK;
 		boredom += BOREDOM_PER_TICK;
 	}
-
-	public Box getCage() {
-		return cage;
-	}
-
-	public int getDirtyness() {
-		return cage.getDirtyness();
-	}
-
-	public void cleanCage() {
-		cage.clean();
-	}
-
 }
