@@ -78,5 +78,13 @@ public class OrganicDogTest {
 		int waste = underTest.getWaste();
 		assertThat(waste, is(20 + 100 / THIRST_TO_WASTE));
 	}
+	
+	@Test
+	public void shouldHaveTickDecreaseHealthIfHungry() {
+		OrganicDog underTest = new OrganicDog(120, 0, 0, 0);
+		underTest.tick();
+		int health = underTest.getHealth();
+		assertThat(health, is(80));
+	}
 
 }
