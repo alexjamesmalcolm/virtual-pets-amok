@@ -20,4 +20,11 @@ public class RoboticCatTest {
 		String description = underTest.getDescription();
 		assertThat(description, is("Cool"));
 	}
+	
+	@Test
+	public void shouldHaveDryness80() {
+		RoboticCat underTest = new RoboticCat("Joey", "Cool", 80);
+		int dryness = underTest.getDryness();
+		assertThat(dryness, is(80));
+	}
 }
