@@ -12,8 +12,9 @@ public class OrganicDog extends Organic {
 		return cage;
 	}
 
-	public OrganicDog(String name, int hunger, int thirst, int boredom, int waste, Cage cage) {
+	public OrganicDog(String name, String description, int hunger, int thirst, int boredom, int waste, Cage cage) {
 		this.name = name;
+		this.description = description;
 		this.health = DEFAULT_HEALTH;
 		this.hunger = hunger;
 		this.thirst = thirst;
