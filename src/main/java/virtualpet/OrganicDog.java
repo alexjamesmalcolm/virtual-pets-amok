@@ -59,4 +59,8 @@ public class OrganicDog extends Pet {
 		boredom += BOREDOM_PER_TICK;
 	}
 
+	public Cage getCage() {
+		return new Cage();
+	}
+
 }

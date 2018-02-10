@@ -1,15 +1,18 @@
 package virtualpet;
 
+import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static virtualpet.OrganicDog.HUNGER_PER_TICK;
 import static virtualpet.OrganicDog.HUNGER_TO_THIRST;
 import static virtualpet.OrganicDog.HUNGER_TO_WASTE;
-import static virtualpet.OrganicDog.THIRST_TO_WASTE;
 import static virtualpet.OrganicDog.THIRST_PER_TICK;
+import static virtualpet.OrganicDog.THIRST_TO_WASTE;
 import static virtualpet.Pet.BOREDOM_PER_TICK;
 import static virtualpet.Pet.DEFAULT_HEALTH;
 
+import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class OrganicDogTest {
@@ -110,6 +113,13 @@ public class OrganicDogTest {
 		underTest.tick();
 		int health = underTest.getHealth();
 		assertThat(health, is(60));
+	}
+	
+	@Test
+	public void shouldGetCage() {
+		OrganicDog underTest = new OrganicDog(0,0,0,0);
+		Cage cage = underTest.getCage();
+		assertThat(cage instanceof Cage, is(true));
 	}
 
 }
