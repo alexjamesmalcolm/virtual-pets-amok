@@ -16,9 +16,14 @@ public abstract class Robotic extends Pet {
 
 	@Override
 	public void tick() {
+		if (dryness > 100) {
+			health -= dryness - 100;
+		}
+		if (boredom > 100) {
+			health -= boredom - 100;
+		}
 		dryness += DRYNESS_PER_TICK;
 		boredom += BOREDOM_PER_TICK;
-		health -= 20;
 	}
 
 }
