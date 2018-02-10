@@ -10,21 +10,21 @@ public class CageTest {
 	
 	@Test
 	public void shouldHaveDirtynessLevelDefault() {
-		Cage underTest = new Cage();
+		Box underTest = new Cage();
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness,is(DEFAULT_DIRTYNESS));
 	}
 	
 	@Test
 	public void shouldHaveDirtynessLevelBe69() {
-		Cage underTest = new Cage(69);
+		Box underTest = new Cage(69);
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(69));
 	}
 	
 	@Test
 	public void shouldCleanCage() {
-		Cage underTest = new Cage(69);
+		Box underTest = new Cage(69);
 		underTest.clean();
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(0));
