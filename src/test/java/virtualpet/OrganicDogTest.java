@@ -1,6 +1,5 @@
 package virtualpet;
 
-import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static virtualpet.Box.DEFAULT_DIRTYNESS;
@@ -12,8 +11,6 @@ import static virtualpet.OrganicDog.THIRST_TO_WASTE;
 import static virtualpet.Pet.BOREDOM_PER_TICK;
 import static virtualpet.Pet.DEFAULT_HEALTH;
 
-import org.hamcrest.Matchers;
-import org.junit.Assert;
 import org.junit.Test;
 
 public class OrganicDogTest {
@@ -128,6 +125,14 @@ public class OrganicDogTest {
 		OrganicDog underTest = new OrganicDog(0,0,0,0);
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS));
+	}
+	
+	@Test
+	public void shouldHaveCleanCageCleanTheCage() {
+		OrganicDog underTest = new OrganicDog(0,0,0,0);
+		underTest.cleanCage();
+		int dirtyness = underTest.getDirtyness();
+		assertThat(dirtyness, is(0));
 	}
 
 }
