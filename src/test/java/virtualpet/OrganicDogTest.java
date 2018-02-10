@@ -161,4 +161,12 @@ public class OrganicDogTest {
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + (120 - 100) / WASTE_TO_DIRTYNESS));
 	}
 	
+	@Test
+	public void shouldHaveSoilCageNotIncreaseCageDirtyness90() {
+		OrganicDog underTest = new OrganicDog(0,0,0,90,new Cage());
+		underTest.soilCage();
+		int dirtyness = underTest.getDirtyness();
+		assertThat(dirtyness, is(DEFAULT_DIRTYNESS));
+	}
+	
 }
