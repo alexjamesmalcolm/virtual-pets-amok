@@ -4,6 +4,7 @@ public class OrganicDog extends Pet{
 
 	protected static final int HUNGER_TO_THIRST = 4;
 	protected static final int HUNGER_PER_TICK = 1;
+	protected static final int THIRST_PER_TICK = 1;
 	private int hunger;
 	private int thirst;
 
@@ -32,6 +33,7 @@ public class OrganicDog extends Pet{
 	@Override
 	public void tick() {
 		hunger += HUNGER_PER_TICK;
+		thirst += THIRST_PER_TICK;
 	}
 
 }
