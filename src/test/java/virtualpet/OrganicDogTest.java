@@ -91,8 +91,17 @@ public class OrganicDogTest {
 	@Test
 	public void shouldHaveDefaultHealth() {
 		OrganicDog underTest = new OrganicDog(0, 0, 0, 0);
+		underTest.tick();
 		int health = underTest.getHealth();
 		assertThat(health, is(DEFAULT_HEALTH));
+	}
+
+	@Test
+	public void shouldHaveTickDecreaseHealthIfThirsty() {
+		OrganicDog underTest = new OrganicDog(0, 130, 0, 0);
+		underTest.tick();
+		int health = underTest.getHealth();
+		assertThat(health, is(70));
 	}
 
 }

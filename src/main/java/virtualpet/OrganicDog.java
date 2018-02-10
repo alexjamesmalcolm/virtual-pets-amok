@@ -44,7 +44,13 @@ public class OrganicDog extends Pet {
 
 	@Override
 	public void tick() {
-		health = 80;
+		health = DEFAULT_HEALTH;
+		if (hunger > 100) {
+			health -= hunger - 100;
+		}
+		if (thirst > 100) {
+			health -= thirst - 100;
+		}
 		hunger += HUNGER_PER_TICK;
 		thirst += THIRST_PER_TICK;
 		boredom += BOREDOM_PER_TICK;
