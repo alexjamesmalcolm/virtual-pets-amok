@@ -19,7 +19,7 @@ public class OrganicDogTest {
 	@Test
 	public void shouldHaveFeedDecreaseHunger() {
 		int hunger = 100;
-		OrganicDog underTest = new OrganicDog(hunger, 0, 0, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", hunger, 0, 0, 0, new Cage());
 		underTest.feed();
 		int returnedHunger = underTest.getHunger();
 		assertThat(returnedHunger, is(0));
@@ -28,7 +28,7 @@ public class OrganicDogTest {
 	@Test
 	public void shouldHaveWaterDecreaseThirst() {
 		int thirst = 100;
-		OrganicDog underTest = new OrganicDog(0, thirst, 0, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", 0, thirst, 0, 0, new Cage());
 		underTest.water();
 		int returnedThirst = underTest.getThirst();
 		assertThat(returnedThirst, is(0));
@@ -36,7 +36,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveFeedIncreaseThirst() {
-		OrganicDog underTest = new OrganicDog(100, 10, 0, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", 100, 10, 0, 0, new Cage());
 		underTest.feed();
 		int thirst = underTest.getThirst();
 		assertThat(thirst, is(10 + 100 / HUNGER_TO_THIRST));
@@ -44,7 +44,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveTickIncreaseHunger() {
-		OrganicDog underTest = new OrganicDog(10, 0, 0, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", 10, 0, 0, 0, new Cage());
 		underTest.tick();
 		int hunger = underTest.getHunger();
 		assertThat(hunger, is(10 + HUNGER_PER_TICK));
@@ -52,7 +52,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveTickIncreaseThirst() {
-		OrganicDog underTest = new OrganicDog(0, 10, 0, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", 0, 10, 0, 0, new Cage());
 		underTest.tick();
 		int thirst = underTest.getThirst();
 		assertThat(thirst, is(10 + THIRST_PER_TICK));
@@ -60,7 +60,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveTickIncreaseBoredom() {
-		OrganicDog underTest = new OrganicDog(0, 0, 10, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", 0, 0, 10, 0, new Cage());
 		underTest.tick();
 		int boredom = underTest.getBoredom();
 		assertThat(boredom, is(10 + BOREDOM_PER_TICK));
@@ -68,7 +68,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveFeedIncreaseWaste() {
-		OrganicDog underTest = new OrganicDog(100, 0, 0, 10, new Cage());
+		Organic underTest = new OrganicDog("Joey", 100, 0, 0, 10, new Cage());
 		underTest.feed();
 		int waste = underTest.getWaste();
 		assertThat(waste, is(10 + 100 / HUNGER_TO_WASTE));
@@ -76,7 +76,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveWaterIncreaseWaste() {
-		OrganicDog underTest = new OrganicDog(0, 100, 0, 20, new Cage());
+		Organic underTest = new OrganicDog("Joey", 0, 100, 0, 20, new Cage());
 		underTest.water();
 		int waste = underTest.getWaste();
 		assertThat(waste, is(20 + 100 / THIRST_TO_WASTE));
@@ -84,7 +84,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveTickDecreaseHealthIfHungry() {
-		OrganicDog underTest = new OrganicDog(120, 0, 0, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", 120, 0, 0, 0, new Cage());
 		underTest.tick();
 		int health = underTest.getHealth();
 		assertThat(health, is(80));
@@ -92,7 +92,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveDefaultHealth() {
-		OrganicDog underTest = new OrganicDog(0, 0, 0, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", 0, 0, 0, 0, new Cage());
 		underTest.tick();
 		int health = underTest.getHealth();
 		assertThat(health, is(DEFAULT_HEALTH));
@@ -100,7 +100,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveTickDecreaseHealthIfThirsty() {
-		OrganicDog underTest = new OrganicDog(0, 130, 0, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", 0, 130, 0, 0, new Cage());
 		underTest.tick();
 		int health = underTest.getHealth();
 		assertThat(health, is(70));
@@ -108,7 +108,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveTickDecreaseHealthIfBored() {
-		OrganicDog underTest = new OrganicDog(0, 0, 140, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", 0, 0, 140, 0, new Cage());
 		underTest.tick();
 		int health = underTest.getHealth();
 		assertThat(health, is(60));
@@ -116,21 +116,21 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldGetCage() {
-		OrganicDog underTest = new OrganicDog(0, 0, 0, 0, new Cage());
+		OrganicDog underTest = new OrganicDog("Joey", 0, 0, 0, 0, new Cage());
 		Box cage = underTest.getCage();
 		assertThat(cage instanceof Cage, is(true));
 	}
 
 	@Test
 	public void shouldGetDirtyness() {
-		OrganicDog underTest = new OrganicDog(0, 0, 0, 0, new Cage());
+		OrganicDog underTest = new OrganicDog("Joey", 0, 0, 0, 0, new Cage());
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS));
 	}
 
 	@Test
 	public void shouldHaveCleanCageCleanTheCage() {
-		OrganicDog underTest = new OrganicDog(0, 0, 0, 0, new Cage());
+		OrganicDog underTest = new OrganicDog("Joey", 0, 0, 0, 0, new Cage());
 		underTest.cleanCage();
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(0));
@@ -139,7 +139,7 @@ public class OrganicDogTest {
 	@Test
 	public void shouldHaveConstructorTakeCage() {
 		Cage cage = new Cage(50);
-		OrganicDog underTest = new OrganicDog(0, 0, 0, 0, cage);
+		OrganicDog underTest = new OrganicDog("Joey", 0, 0, 0, 0, cage);
 		underTest.cleanCage();
 		Cage returnedCage = underTest.getCage();
 		assertThat(returnedCage.getDirtyness(), is(cage.getDirtyness()));
@@ -147,26 +147,33 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveSoilCageIncreaseCageDirtyness150() {
-		OrganicDog underTest = new OrganicDog(0, 0, 0, 150, new Cage());
+		OrganicDog underTest = new OrganicDog("Joey", 0, 0, 0, 150, new Cage());
 		underTest.soilCage();
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + (150 - 100) / WASTE_TO_DIRTYNESS));
 	}
-	
+
 	@Test
 	public void shouldHaveSoilCageIncreaseCageDirtyness120() {
-		OrganicDog underTest = new OrganicDog(0,0,0,120, new Cage());
+		OrganicDog underTest = new OrganicDog("Joey", 0, 0, 0, 120, new Cage());
 		underTest.soilCage();
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + (120 - 100) / WASTE_TO_DIRTYNESS));
 	}
-	
+
 	@Test
 	public void shouldHaveSoilCageNotIncreaseCageDirtyness90() {
-		OrganicDog underTest = new OrganicDog(0,0,0,90,new Cage());
+		OrganicDog underTest = new OrganicDog("Joey", 0, 0, 0, 90, new Cage());
 		underTest.soilCage();
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS));
 	}
-	
+
+	@Test
+	public void shouldHaveNameJoey() {
+		OrganicDog underTest = new OrganicDog("Joey", 0, 0, 0, 0, new Cage());
+		String name = underTest.getName();
+		assertThat(name, is("Joey"));
+	}
+
 }
