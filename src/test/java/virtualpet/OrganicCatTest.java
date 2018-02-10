@@ -27,4 +27,11 @@ public class OrganicCatTest {
 		int boredom = underTest.getBoredom();
 		assertThat(boredom, is(10));
 	}
+
+	@Test
+	public void shouldHaveCustomName() {
+		OrganicCat underTest = new OrganicCat("Joey", "Cool", 10);
+		String name = underTest.getName();
+		assertThat(name, is("Joey"));
+	}
 }
