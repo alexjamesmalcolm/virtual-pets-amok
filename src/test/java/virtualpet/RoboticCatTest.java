@@ -42,6 +42,4 @@ public class RoboticCatTest {
 		assertThat(health, is(100));
 	}
 	
-	@Test
-	public void should() {}
 }
