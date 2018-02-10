@@ -24,6 +24,7 @@ public class OrganicDog extends Pet {
 	}
 
 	public OrganicDog(int hunger, int thirst, int boredom, int waste) {
+		this.health = DEFAULT_HEALTH;
 		this.hunger = hunger;
 		this.thirst = thirst;
 		this.boredom = boredom;

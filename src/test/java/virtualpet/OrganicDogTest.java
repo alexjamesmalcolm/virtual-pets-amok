@@ -8,6 +8,7 @@ import static virtualpet.OrganicDog.HUNGER_TO_WASTE;
 import static virtualpet.OrganicDog.THIRST_TO_WASTE;
 import static virtualpet.OrganicDog.THIRST_PER_TICK;
 import static virtualpet.Pet.BOREDOM_PER_TICK;
+import static virtualpet.Pet.DEFAULT_HEALTH;
 
 import org.junit.Test;
 
@@ -78,13 +79,20 @@ public class OrganicDogTest {
 		int waste = underTest.getWaste();
 		assertThat(waste, is(20 + 100 / THIRST_TO_WASTE));
 	}
-	
+
 	@Test
 	public void shouldHaveTickDecreaseHealthIfHungry() {
 		OrganicDog underTest = new OrganicDog(120, 0, 0, 0);
 		underTest.tick();
 		int health = underTest.getHealth();
 		assertThat(health, is(80));
+	}
+
+	@Test
+	public void shouldHaveDefaultHealth() {
+		OrganicDog underTest = new OrganicDog(0, 0, 0, 0);
+		int health = underTest.getHealth();
+		assertThat(health, is(DEFAULT_HEALTH));
 	}
 
 }
