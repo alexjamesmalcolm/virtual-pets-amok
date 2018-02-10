@@ -3,18 +3,26 @@ package virtualpet;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static virtualpet.Box.DEFAULT_DIRTYNESS;
-import static virtualpet.OrganicDog.HUNGER_PER_TICK;
-import static virtualpet.OrganicDog.HUNGER_TO_THIRST;
-import static virtualpet.OrganicDog.HUNGER_TO_WASTE;
-import static virtualpet.OrganicDog.THIRST_PER_TICK;
-import static virtualpet.OrganicDog.THIRST_TO_WASTE;
-import static virtualpet.OrganicDog.WASTE_TO_DIRTYNESS;
+import static virtualpet.Organic.HUNGER_PER_TICK;
+import static virtualpet.Organic.HUNGER_TO_THIRST;
+import static virtualpet.Organic.HUNGER_TO_WASTE;
+import static virtualpet.Organic.THIRST_PER_TICK;
+import static virtualpet.Organic.THIRST_TO_WASTE;
+import static virtualpet.Organic.WASTE_TO_DIRTYNESS;
 import static virtualpet.Pet.BOREDOM_PER_TICK;
 import static virtualpet.Pet.DEFAULT_HEALTH;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class OrganicDogTest {
+
+	private OrganicDog joey;
+
+	@Before
+	public void setup() {
+		joey = new OrganicDog("Joey", "Cool");
+	}
 
 	@Test
 	public void shouldHaveFeedDecreaseHunger() {
@@ -182,11 +190,16 @@ public class OrganicDogTest {
 		String description = underTest.getDescription();
 		assertThat(description, is("Cool"));
 	}
-	
+
 	@Test
 	public void shouldHaveDefaultsConstructorName() {
-		OrganicDog underTest = new OrganicDog("Joey", "Cool");
-		String name = underTest.getName();
+		String name = joey.getName();
 		assertThat(name, is("Joey"));
+	}
+
+	@Test
+	public void shouldHaveDefaultHunger() {
+		int hunger = joey.getHunger();
+		assertThat(hunger, is(Organic.DEFAULT_HUNGER));
 	}
 }

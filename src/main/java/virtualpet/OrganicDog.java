@@ -24,7 +24,7 @@ public class OrganicDog extends Organic {
 	}
 
 	public OrganicDog(String name, String description) {
-		this(name, description, 0, 0, 0, 0, new Cage());
+		this(name, description, DEFAULT_HUNGER, DEFAULT_THIRST, DEFAULT_BOREDOM, DEFAULT_WASTE, new Cage());
 	}
 
 	public void cleanCage() {
