@@ -1,6 +1,6 @@
 package virtualpet;
 
-public class OrganicDog extends Pet{
+public class OrganicDog extends Pet {
 
 	protected static final int HUNGER_TO_THIRST = 8;
 	protected static final int HUNGER_PER_TICK = 1;
@@ -43,6 +43,7 @@ public class OrganicDog extends Pet{
 
 	@Override
 	public void tick() {
+		health = 80;
 		hunger += HUNGER_PER_TICK;
 		thirst += THIRST_PER_TICK;
 		boredom += BOREDOM_PER_TICK;
