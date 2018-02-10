@@ -7,7 +7,8 @@ public class RoboticCat extends Robotic {
 		this.description = description;
 	}
 
-	public RoboticCat(String name, String description, int dryness) {
+	public RoboticCat(String name, String description, int boredom, int dryness) {
+		this.boredom = boredom;
 		this.dryness = dryness;
 	}
 
