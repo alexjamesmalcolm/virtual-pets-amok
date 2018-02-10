@@ -26,9 +26,7 @@ public abstract class Pet {
 		return boredom;
 	}
 
-	public void tick() {
-		boredom += BOREDOM_PER_TICK;
-	}
+	public abstract void tick();
 
 	public void play() {
 		boredom = 0;
