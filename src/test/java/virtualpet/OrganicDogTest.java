@@ -33,4 +33,12 @@ public class OrganicDogTest {
 		assertThat(thirst, is(100 / OrganicDog.HUNGER_TO_THIRST));
 	}
 
+	@Test
+	public void shouldHaveTickIncreaseHunger() {
+		OrganicDog underTest = new OrganicDog(10, 0);
+		underTest.tick();
+		int hunger = underTest.getHunger();
+		assertThat(hunger, is(10 + OrganicDog.HUNGER_PER_TICK));
+	}
+
 }
