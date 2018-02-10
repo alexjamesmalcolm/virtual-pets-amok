@@ -51,6 +51,9 @@ public class OrganicDog extends Pet {
 		if (thirst > 100) {
 			health -= thirst - 100;
 		}
+		if (boredom > 100) {
+			health -= boredom - 100;
+		}
 		hunger += HUNGER_PER_TICK;
 		thirst += THIRST_PER_TICK;
 		boredom += BOREDOM_PER_TICK;

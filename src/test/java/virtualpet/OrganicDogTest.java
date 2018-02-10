@@ -104,4 +104,12 @@ public class OrganicDogTest {
 		assertThat(health, is(70));
 	}
 
+	@Test
+	public void shouldHaveTickDecreaseHealthIfBored() {
+		OrganicDog underTest = new OrganicDog(0, 0, 140, 0);
+		underTest.tick();
+		int health = underTest.getHealth();
+		assertThat(health, is(60));
+	}
+
 }
