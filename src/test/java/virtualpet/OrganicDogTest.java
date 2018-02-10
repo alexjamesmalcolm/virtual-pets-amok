@@ -3,6 +3,7 @@ package virtualpet;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static virtualpet.Box.DEFAULT_DIRTYNESS;
 import static virtualpet.OrganicDog.HUNGER_PER_TICK;
 import static virtualpet.OrganicDog.HUNGER_TO_THIRST;
 import static virtualpet.OrganicDog.HUNGER_TO_WASTE;
@@ -118,8 +119,15 @@ public class OrganicDogTest {
 	@Test
 	public void shouldGetCage() {
 		OrganicDog underTest = new OrganicDog(0,0,0,0);
-		Cage cage = underTest.getCage();
+		Box cage = underTest.getCage();
 		assertThat(cage instanceof Cage, is(true));
+	}
+	
+	@Test
+	public void shouldGetDirtyness() {
+		OrganicDog underTest = new OrganicDog(0,0,0,0);
+		int dirtyness = underTest.getDirtyness();
+		assertThat(dirtyness, is(DEFAULT_DIRTYNESS));
 	}
 
 }
