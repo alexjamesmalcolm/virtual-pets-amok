@@ -2,14 +2,12 @@ package virtualpet;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Matchers.notNull;
 import static virtualpet.Box.DEFAULT_DIRTYNESS;
 import static virtualpet.Pet.BOREDOM_PER_TICK;
 import static virtualpet.Pet.DEFAULT_BOREDOM;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Matchers;
 
 public class VirtualPetShelterTest {
 
@@ -129,5 +127,11 @@ public class VirtualPetShelterTest {
 	public void shouldHaveCageForJoey() {
 		Cage cage = petShelter.getCage("Joey");
 		assertThat(cage instanceof Cage, is(true));
+	}
+	
+	@Test
+	public void shouldHaveOneCage() {
+		int numberOfCages = petShelter.numberOfCages();
+		assertThat(numberOfCages, is(1));
 	}
 }

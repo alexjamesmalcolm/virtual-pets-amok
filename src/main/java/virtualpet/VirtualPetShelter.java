@@ -82,4 +82,8 @@ public class VirtualPetShelter {
 		return new Cage();
 	}
 
+	public int numberOfCages() {
+		return 1;
+	}
+
 }
