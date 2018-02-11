@@ -2,17 +2,17 @@ package virtualpet;
 
 public class OrganicDog extends Organic {
 
-	private Cage cage;
+	private Box cage;
 
 	public int getDirtyness() {
 		return cage.getDirtyness();
 	}
 
-	public Cage getCage() {
+	public Box getCage() {
 		return cage;
 	}
 
-	public OrganicDog(String name, String description, int hunger, int thirst, int boredom, int waste, Cage cage) {
+	public OrganicDog(String name, String description, int hunger, int thirst, int boredom, int waste, Box cage) {
 		this.name = name;
 		this.description = description;
 		this.health = DEFAULT_HEALTH;

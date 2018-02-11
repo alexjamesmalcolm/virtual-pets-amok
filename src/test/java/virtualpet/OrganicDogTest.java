@@ -146,10 +146,10 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveConstructorTakeCage() {
-		Cage cage = new Cage(50);
+		Box cage = new Cage(50);
 		OrganicDog underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 0, cage);
 		underTest.cleanCage();
-		Cage returnedCage = underTest.getCage();
+		Box returnedCage = underTest.getCage();
 		assertThat(returnedCage.getDirtyness(), is(cage.getDirtyness()));
 	}
 
