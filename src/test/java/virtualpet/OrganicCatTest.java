@@ -2,6 +2,7 @@ package virtualpet;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static virtualpet.Box.DEFAULT_DIRTYNESS;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -77,5 +78,12 @@ public class OrganicCatTest {
 		underTest.cleanLitterBox();
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(0));
+	}
+	
+	@Test
+	public void shouldHaveDefaultDirtyness() {
+		OrganicCat underTest = new OrganicCat("Joey", "Cool", litterBox);
+		int dirtyness = underTest.getDirtyness();
+		assertThat(dirtyness, is(DEFAULT_DIRTYNESS));
 	}
 }

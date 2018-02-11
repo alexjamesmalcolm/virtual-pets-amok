@@ -23,10 +23,11 @@ public class OrganicCat extends Organic {
 	}
 
 	public void cleanLitterBox() {
+		getLitterBox().clean();
 	}
 
 	public int getDirtyness() {
-		return 0;
+		return getLitterBox().getDirtyness();
 	}
 
 }
