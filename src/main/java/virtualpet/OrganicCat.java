@@ -35,4 +35,9 @@ public class OrganicCat extends Organic {
 		getLitterBox().addWaste(getWaste());
 	}
 
+	@Override
+	void goToBathroom() {
+		useLitterBox();
+	}
+
 }

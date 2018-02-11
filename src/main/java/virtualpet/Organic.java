@@ -53,6 +53,9 @@ public abstract class Organic extends Pet {
 		hunger += HUNGER_PER_TICK;
 		thirst += THIRST_PER_TICK;
 		boredom += BOREDOM_PER_TICK;
+		goToBathroom();
 	}
+
+	abstract void goToBathroom();
 
 }
