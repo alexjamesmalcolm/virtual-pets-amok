@@ -55,4 +55,9 @@ public class OrganicCatTest {
 		int waste = underTest.getWaste();
 		assertThat(waste, is(40));
 	}
+	
+//	@Test
+//	public void shouldHaveLitterBox() {
+//		OrganicCat underTest = new OrganicCat("Joey", "Cool", LitterBox litterBox);
+//	}
 }
