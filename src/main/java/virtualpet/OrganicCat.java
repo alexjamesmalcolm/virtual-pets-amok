@@ -31,7 +31,7 @@ public class OrganicCat extends Organic {
 	}
 
 	public void useLitterBox() {
-		getLitterBox().addWaste(20);
+		getLitterBox().addWaste(getWaste() - 100);
 	}
 
 }

@@ -88,10 +88,18 @@ public class OrganicCatTest {
 	}
 
 	@Test
-	public void shouldUseLitterBox() {
+	public void shouldUseLitterBox120() {
 		OrganicCat underTest = new OrganicCat("Joey", "Cool", litterBox, 0, 0, 0, 120);
 		underTest.useLitterBox();
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + 20));
+	}
+
+	@Test
+	public void shouldUseLitterBox130() {
+		OrganicCat underTest = new OrganicCat("Joey", "Cool", litterBox, 0, 0, 0, 130);
+		underTest.useLitterBox();
+		int dirtyness = underTest.getDirtyness();
+		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + 30));
 	}
 }
