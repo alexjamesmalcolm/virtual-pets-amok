@@ -5,13 +5,15 @@ import java.util.Map;
 
 public class VirtualPetShelter {
 
-	Map<String, Pet> pets = new HashMap<>();
+	private Map<String, Pet> pets = new HashMap<>();
+	private LitterBox litterBox;
 
 	public Pet getPet(String name) {
 		return pets.get(name);
 	}
 
 	public VirtualPetShelter(LitterBox litterBox) {
+		this.litterBox = litterBox;
 	}
 
 	public void add(Pet pet) {
@@ -66,6 +68,14 @@ public class VirtualPetShelter {
 		pets.forEach((name, pet) -> {
 			pet.tick();
 		});
+	}
+
+	public void emptyLitterBox() {
+		litterBox.clean();
+	}
+
+	public int getDirtyness() {
+		return litterBox.getDirtyness();
 	}
 
 }

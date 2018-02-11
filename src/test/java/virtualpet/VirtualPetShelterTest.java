@@ -2,6 +2,9 @@ package virtualpet;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static virtualpet.Box.DEFAULT_DIRTYNESS;
+import static virtualpet.Pet.BOREDOM_PER_TICK;
+import static virtualpet.Pet.DEFAULT_BOREDOM;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -104,6 +107,19 @@ public class VirtualPetShelterTest {
 	public void shouldHaveTickCallTick() {
 		petShelter.tick();
 		int boredom = petShelter.getPet("Joey").getBoredom();
-		assertThat(boredom, is(Pet.DEFAULT_BOREDOM + Pet.BOREDOM_PER_TICK));
+		assertThat(boredom, is(DEFAULT_BOREDOM + BOREDOM_PER_TICK));
+	}
+	
+	@Test
+	public void shouldEmptyLitterBox() {
+		petShelter.emptyLitterBox();
+		int dirtyness = petShelter.getDirtyness();
+		assertThat(dirtyness, is(0));
+	}
+	
+	@Test
+	public void shouldHaveDefaultDirtyness() {
+		int dirtyness = petShelter.getDirtyness();
+		assertThat(dirtyness, is(DEFAULT_DIRTYNESS));
 	}
 }
