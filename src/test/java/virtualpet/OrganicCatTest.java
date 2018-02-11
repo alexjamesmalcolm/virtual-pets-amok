@@ -70,4 +70,12 @@ public class OrganicCatTest {
 		LitterBox check = underTest.getLitterBox();
 		assertThat(check instanceof LitterBox, is(true));
 	}
+
+	@Test
+	public void shouldCleanLitterBox() {
+		OrganicCat underTest = new OrganicCat("Joey", "Cool", litterBox);
+		underTest.cleanLitterBox();
+		int dirtyness = underTest.getDirtyness();
+		assertThat(dirtyness, is(0));
+	}
 }

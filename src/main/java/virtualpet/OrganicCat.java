@@ -22,4 +22,11 @@ public class OrganicCat extends Organic {
 		return litterBox;
 	}
 
+	public void cleanLitterBox() {
+	}
+
+	public int getDirtyness() {
+		return 0;
+	}
+
 }
