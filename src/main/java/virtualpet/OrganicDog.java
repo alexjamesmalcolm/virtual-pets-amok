@@ -37,4 +37,9 @@ public class OrganicDog extends Organic {
 		}
 	}
 
+	@Override
+	void goToBathroom() {
+		soilCage();
+	}
+
 }

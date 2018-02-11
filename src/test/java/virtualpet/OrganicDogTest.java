@@ -3,6 +3,7 @@ package virtualpet;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static virtualpet.Box.DEFAULT_DIRTYNESS;
+import static virtualpet.Organic.DEFAULT_HUNGER;
 import static virtualpet.Organic.HUNGER_PER_TICK;
 import static virtualpet.Organic.HUNGER_TO_THIRST;
 import static virtualpet.Organic.HUNGER_TO_WASTE;
@@ -200,6 +201,14 @@ public class OrganicDogTest {
 	@Test
 	public void shouldHaveDefaultHunger() {
 		int hunger = joey.getHunger();
-		assertThat(hunger, is(Organic.DEFAULT_HUNGER));
+		assertThat(hunger, is(DEFAULT_HUNGER));
+	}
+
+	@Test
+	public void shouldHaveTickUseBathroom110() {
+		OrganicDog underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 110, new Cage());
+		underTest.tick();
+		int dirtyness = underTest.getDirtyness();
+		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + 10));
 	}
 }
