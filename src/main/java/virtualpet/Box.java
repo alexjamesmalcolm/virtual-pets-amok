@@ -13,4 +13,8 @@ public abstract class Box {
 		dirtyness = 0;
 	}
 
+	public void addWaste(int waste) {
+		dirtyness += waste;
+	}
+
 }

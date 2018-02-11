@@ -10,8 +10,4 @@ public class Cage extends Box {
 		this(DEFAULT_DIRTYNESS);
 	}
 
-	public void addWaste(int waste) {
-		dirtyness += waste;
-	}
-
 }
