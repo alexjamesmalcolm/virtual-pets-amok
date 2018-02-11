@@ -92,11 +92,18 @@ public class VirtualPetShelterTest {
 		int thirst = ((Organic) petShelter.getPet("Joey")).getThirst();
 		assertThat(thirst, is(0));
 	}
-	
+
 	@Test
 	public void shouldPlayWithOrganicDog() {
 		petShelter.play("Joey");
-		int boredom = ((Organic) petShelter.getPet("Joey")).getBoredom();
+		int boredom = petShelter.getPet("Joey").getBoredom();
 		assertThat(boredom, is(0));
+	}
+
+	@Test
+	public void shouldHaveTickCallTick() {
+		petShelter.tick();
+		int boredom = petShelter.getPet("Joey").getBoredom();
+		assertThat(boredom, is(Pet.DEFAULT_BOREDOM + Pet.BOREDOM_PER_TICK));
 	}
 }
