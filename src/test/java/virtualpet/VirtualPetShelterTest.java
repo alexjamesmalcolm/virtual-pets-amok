@@ -71,4 +71,11 @@ public class VirtualPetShelterTest {
 		int dryness = ((Robotic) petShelter.getPet("Auto")).getDryness();
 		assertThat(dryness, is(0));
 	}
+	
+	@Test
+	public void shouldFeedOrganicDog() {
+		petShelter.feed();
+		int hunger = ((Organic) petShelter.getPet("Joey")).getHunger();
+		assertThat(hunger, is(0));
+	}
 }

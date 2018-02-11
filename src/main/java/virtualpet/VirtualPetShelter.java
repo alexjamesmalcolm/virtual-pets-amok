@@ -42,4 +42,8 @@ public class VirtualPetShelter {
 		});
 	}
 
+	public void feed() {
+		((Organic) pets.get("Joey")).feed();
+	}
+
 }
