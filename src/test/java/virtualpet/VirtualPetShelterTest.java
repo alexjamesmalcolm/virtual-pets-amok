@@ -42,14 +42,14 @@ public class VirtualPetShelterTest {
 		Pet pet = petShelter.getPet("Auto");
 		assertThat(pet.getBoredom(), is(0));
 	}
-	
+
 	@Test
 	public void shouldAdoptOnePet() {
 		petShelter.adoptPet("Joey");
 		int numberOfPets = petShelter.numberOfPets();
 		assertThat(numberOfPets, is(3));
 	}
-	
+
 	@Test
 	public void shouldAdoptTwoPets() {
 		petShelter.adoptPet("Joey");
@@ -57,32 +57,46 @@ public class VirtualPetShelterTest {
 		int numberOfPets = petShelter.numberOfPets();
 		assertThat(numberOfPets, is(2));
 	}
-	
+
 	@Test
 	public void shouldOilRoboticCat() {
 		petShelter.oilAllRobots();
 		int dryness = ((Robotic) petShelter.getPet("Synth")).getDryness();
 		assertThat(dryness, is(0));
 	}
-	
+
 	@Test
 	public void shouldOilRoboticDog() {
 		petShelter.oilAllRobots();
 		int dryness = ((Robotic) petShelter.getPet("Auto")).getDryness();
 		assertThat(dryness, is(0));
 	}
-	
+
 	@Test
 	public void shouldFeedOrganicDog() {
 		petShelter.feed();
 		int hunger = ((Organic) petShelter.getPet("Joey")).getHunger();
 		assertThat(hunger, is(0));
 	}
-	
+
 	@Test
 	public void shouldFeedOrganicCat() {
 		petShelter.feed();
 		int hunger = ((Organic) petShelter.getPet("Phil")).getHunger();
 		assertThat(hunger, is(0));
+	}
+
+	@Test
+	public void shouldWaterOrganicDog() {
+		petShelter.water();
+		int thirst = ((Organic) petShelter.getPet("Joey")).getThirst();
+		assertThat(thirst, is(0));
+	}
+	
+	@Test
+	public void shouldPlayWithOrganicDog() {
+		petShelter.play("Joey");
+		int boredom = ((Organic) petShelter.getPet("Joey")).getBoredom();
+		assertThat(boredom, is(0));
 	}
 }

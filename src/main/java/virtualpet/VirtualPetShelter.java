@@ -50,4 +50,16 @@ public class VirtualPetShelter {
 		});
 	}
 
+	public void water() {
+		pets.forEach((name, pet) -> {
+			if (pet instanceof Organic) {
+				((Organic) pet).water();
+			}
+		});
+	}
+
+	public void play(String name) {
+		pets.get(name).play();
+	}
+
 }
