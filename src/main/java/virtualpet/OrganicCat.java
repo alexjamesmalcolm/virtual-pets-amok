@@ -8,7 +8,8 @@ public class OrganicCat extends Organic {
 		this(name, description, litterBox, DEFAULT_BOREDOM, 20, 30, 40);
 	}
 
-	public OrganicCat(String name, String description, LitterBox litterBox, int boredom, int hunger, int thirst, int waste) {
+	public OrganicCat(String name, String description, LitterBox litterBox, int boredom, int hunger, int thirst,
+			int waste) {
 		this.name = name;
 		this.description = description;
 		this.boredom = boredom;
@@ -31,7 +32,9 @@ public class OrganicCat extends Organic {
 	}
 
 	public void useLitterBox() {
-		getLitterBox().addWaste(getWaste() - 100);
+		if (getWaste() > 100) {
+			getLitterBox().addWaste(getWaste() - 100);
+		}
 	}
 
 }
