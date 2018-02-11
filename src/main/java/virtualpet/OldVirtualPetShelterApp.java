@@ -2,11 +2,11 @@ package virtualpet;
 
 import java.util.Scanner;
 
-public class VirtualPetShelterApp {
+public class OldVirtualPetShelterApp {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		VirtualPetShelter shelter = new VirtualPetShelter();
+		OldVirtualPetShelter shelter = new OldVirtualPetShelter();
 		while (true) {
 			if (shelter.count() > 0) {
 				System.out.println("This is the status of your pets:\n");

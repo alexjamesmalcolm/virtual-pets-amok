@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class VirtualPetShelter {
+public class OldVirtualPetShelter {
 
 	private Map<String, OldVirtualPet> pets = new TreeMap<String, OldVirtualPet>();
 
