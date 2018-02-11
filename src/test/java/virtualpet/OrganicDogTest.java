@@ -211,4 +211,11 @@ public class OrganicDogTest {
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + 10));
 	}
+	
+	@Test
+	public void shouldHaveWalkReduceBoredom() {
+		joey.walk();
+		int boredom = joey.getBoredom();
+		assertThat(boredom, is(0));
+	}
 }

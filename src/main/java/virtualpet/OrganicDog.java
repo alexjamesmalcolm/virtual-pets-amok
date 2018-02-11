@@ -1,6 +1,6 @@
 package virtualpet;
 
-public class OrganicDog extends Organic {
+public class OrganicDog extends Organic implements Walkable{
 
 	private Box cage;
 
@@ -40,6 +40,11 @@ public class OrganicDog extends Organic {
 	@Override
 	void goToBathroom() {
 		soilCage();
+	}
+
+	@Override
+	public void walk() {
+		boredom = 0;
 	}
 
 }
