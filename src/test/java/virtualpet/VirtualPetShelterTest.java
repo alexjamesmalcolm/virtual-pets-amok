@@ -57,4 +57,11 @@ public class VirtualPetShelterTest {
 		int numberOfPets = petShelter.numberOfPets();
 		assertThat(numberOfPets, is(2));
 	}
+	
+	@Test
+	public void shouldOilRoboticCat() {
+		petShelter.oilAllRobots();
+		int dryness = ((Robotic) petShelter.getPet("Synth")).getDryness();
+		assertThat(dryness, is(0));
+	}
 }

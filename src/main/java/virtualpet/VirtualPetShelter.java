@@ -34,4 +34,8 @@ public class VirtualPetShelter {
 		return pets.size();
 	}
 
+	public void oilAllRobots() {
+		((Robotic) getPet("Synth")).oil();
+	}
+
 }
