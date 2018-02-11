@@ -134,4 +134,11 @@ public class VirtualPetShelterTest {
 		int numberOfCages = petShelter.numberOfCages();
 		assertThat(numberOfCages, is(1));
 	}
+	
+	@Test
+	public void shouldHaveTwoCages() {
+		petShelter.add(new OrganicDog("anne", "Is okay"));
+		int numberOfCages = petShelter.numberOfCages();
+		assertThat(numberOfCages, is(2));
+	}
 }

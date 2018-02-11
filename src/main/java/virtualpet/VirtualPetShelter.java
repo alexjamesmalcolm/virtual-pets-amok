@@ -6,6 +6,7 @@ import java.util.Map;
 public class VirtualPetShelter {
 
 	private Map<String, Pet> pets = new HashMap<>();
+	private Map<String, Cage> cages = new HashMap<>();
 	private LitterBox litterBox;
 
 	public Pet getPet(String name) {
@@ -18,6 +19,9 @@ public class VirtualPetShelter {
 
 	public void add(Pet pet) {
 		pets.put(pet.getName(), pet);
+		if (pet instanceof OrganicDog) {
+			cages.put(pet.getName(), ((OrganicDog) pet).getCage());
+		}
 	}
 
 	public void walk() {
@@ -83,7 +87,7 @@ public class VirtualPetShelter {
 	}
 
 	public int numberOfCages() {
-		return 1;
+		return cages.size();
 	}
 
 }
