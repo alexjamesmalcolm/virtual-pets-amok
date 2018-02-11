@@ -78,4 +78,8 @@ public class VirtualPetShelter {
 		return litterBox.getDirtyness();
 	}
 
+	public Cage getCage(String name) {
+		return new Cage();
+	}
+
 }
