@@ -14,6 +14,30 @@ public class VirtualPetShelter {
 		return pets.get(name);
 	}
 
+	public Collection<Pet> getPets() {
+		return pets.values();
+	}
+
+	public Cage getCage(String name) {
+		return new Cage();
+	}
+
+	public Collection<Cage> getCages() {
+		return cages.values();
+	}
+
+	public int numberOfPets() {
+		return getPets().size();
+	}
+
+	public int numberOfCages() {
+		return cages.size();
+	}
+
+	public int getDirtyness() {
+		return litterBox.getDirtyness();
+	}
+
 	public VirtualPetShelter(LitterBox litterBox) {
 		this.litterBox = litterBox;
 	}
@@ -26,7 +50,7 @@ public class VirtualPetShelter {
 	}
 
 	public void walk() {
-		pets.forEach((name, pet) -> {
+		getPets().forEach(pet -> {
 			if (pet instanceof Walkable) {
 				((Walkable) pet).walk();
 			}
@@ -37,12 +61,8 @@ public class VirtualPetShelter {
 		pets.remove(name);
 	}
 
-	public int numberOfPets() {
-		return pets.size();
-	}
-
 	public void oilAllRobots() {
-		pets.forEach((name, pet) -> {
+		getPets().forEach(pet -> {
 			if (pet instanceof Robotic) {
 				((Robotic) pet).oil();
 			}
@@ -50,7 +70,7 @@ public class VirtualPetShelter {
 	}
 
 	public void feed() {
-		pets.forEach((name, pet) -> {
+		getPets().forEach(pet -> {
 			if (pet instanceof Organic) {
 				((Organic) pet).feed();
 			}
@@ -58,7 +78,7 @@ public class VirtualPetShelter {
 	}
 
 	public void water() {
-		pets.forEach((name, pet) -> {
+		getPets().forEach(pet -> {
 			if (pet instanceof Organic) {
 				((Organic) pet).water();
 			}
@@ -66,11 +86,11 @@ public class VirtualPetShelter {
 	}
 
 	public void play(String name) {
-		pets.get(name).play();
+		getPet(name).play();
 	}
 
 	public void tick() {
-		pets.forEach((name, pet) -> {
+		getPets().forEach(pet -> {
 			pet.tick();
 		});
 	}
@@ -79,26 +99,14 @@ public class VirtualPetShelter {
 		litterBox.clean();
 	}
 
-	public int getDirtyness() {
-		return litterBox.getDirtyness();
-	}
-
-	public Cage getCage(String name) {
-		return new Cage();
-	}
-
-	public int numberOfCages() {
-		return cages.size();
-	}
-
 	public void cleanCages() {
 		cages.forEach((petName, cage) -> {
 			cage.clean();
 		});
 	}
 
-	public Collection<Cage> getCages() {
-		return cages.values();
+	public String getNames() {
+		return "Joey\nPhil\nAuto\nSynth";
 	}
 
 }

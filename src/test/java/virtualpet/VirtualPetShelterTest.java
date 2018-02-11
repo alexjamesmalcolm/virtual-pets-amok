@@ -153,4 +153,16 @@ public class VirtualPetShelterTest {
 			assertThat(cage.getDirtyness(), is(0));
 		}
 	}
+	
+	@Test
+	public void shouldGetPets() {
+		Collection<Pet> pets = petShelter.getPets();
+		assertThat(pets.size(), is(4));
+	}
+	
+	@Test
+	public void shouldGetNames() {
+		String names = petShelter.getNames();
+		assertThat(names, is("Joey\nPhil\nAuto\nSynth"));
+	}
 }
