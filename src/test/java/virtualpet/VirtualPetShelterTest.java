@@ -3,8 +3,6 @@ package virtualpet;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-import org.hamcrest.Matchers;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,7 +24,7 @@ public class VirtualPetShelterTest {
 		roboticDog = new RoboticDog("Auto", "Chill RoboticDog");
 		roboticCat = new RoboticCat("Synth", "Chill RoboticCat");
 	}
-	
+
 	@Test
 	public void shouldWalkOrganicDog() {
 		petShelter.add(organicDog);
@@ -35,6 +33,17 @@ public class VirtualPetShelterTest {
 		petShelter.add(roboticCat);
 		petShelter.walk();
 		Pet pet = petShelter.getPet("Joey");
+		assertThat(pet.getBoredom(), is(0));
+	}
+
+	@Test
+	public void shouldWalkRoboticDog() {
+		petShelter.add(organicDog);
+		petShelter.add(organicCat);
+		petShelter.add(roboticDog);
+		petShelter.add(roboticCat);
+		petShelter.walk();
+		Pet pet = petShelter.getPet("Auto");
 		assertThat(pet.getBoredom(), is(0));
 	}
 }

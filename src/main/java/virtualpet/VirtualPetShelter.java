@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class VirtualPetShelter {
-	
+
 	Map<String, Pet> pets = new HashMap<>();
 
 	public Pet getPet(String name) {
@@ -19,7 +19,11 @@ public class VirtualPetShelter {
 	}
 
 	public void walk() {
-		((Walkable) pets.get("Joey")).walk();
+		pets.forEach((name, pet) -> {
+			if(pet instanceof Walkable) {
+				((Walkable) pet).walk();
+			}
+		});
 	}
 
 }
