@@ -1,5 +1,6 @@
 package virtualpet;
 
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static virtualpet.Box.DEFAULT_DIRTYNESS;
@@ -111,58 +112,58 @@ public class VirtualPetShelterTest {
 		int boredom = petShelter.getPet("Joey").getBoredom();
 		assertThat(boredom, is(DEFAULT_BOREDOM + BOREDOM_PER_TICK));
 	}
-	
+
 	@Test
 	public void shouldEmptyLitterBox() {
 		petShelter.emptyLitterBox();
 		int dirtyness = petShelter.getDirtyness();
 		assertThat(dirtyness, is(0));
 	}
-	
+
 	@Test
 	public void shouldHaveDefaultDirtyness() {
 		int dirtyness = petShelter.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS));
 	}
-	
+
 	@Test
 	public void shouldHaveCageForJoey() {
 		Cage cage = petShelter.getCage("Joey");
 		assertThat(cage instanceof Cage, is(true));
 	}
-	
+
 	@Test
 	public void shouldHaveOneCage() {
 		int numberOfCages = petShelter.numberOfCages();
 		assertThat(numberOfCages, is(1));
 	}
-	
+
 	@Test
 	public void shouldHaveTwoCages() {
 		petShelter.add(new OrganicDog("anne", "Is okay"));
 		int numberOfCages = petShelter.numberOfCages();
 		assertThat(numberOfCages, is(2));
 	}
-	
+
 	@Test
 	public void shouldCleanCages() {
 		petShelter.add(new OrganicDog("anne", "Is okay"));
 		petShelter.cleanCages();
 		Collection<Cage> cages = petShelter.getCages();
-		for(Cage cage : cages) {
+		for (Cage cage : cages) {
 			assertThat(cage.getDirtyness(), is(0));
 		}
 	}
-	
+
 	@Test
 	public void shouldGetPets() {
 		Collection<Pet> pets = petShelter.getPets();
 		assertThat(pets.size(), is(4));
 	}
-	
+
 	@Test
 	public void shouldGetNames() {
-		String names = petShelter.getNames();
-		assertThat(names, is("Joey\nPhil\nAuto\nSynth"));
+		Collection<String> names = petShelter.getNames();
+		assertThat(names, is(containsInAnyOrder("Joey", "Phil", "Auto", "Synth")));
 	}
 }

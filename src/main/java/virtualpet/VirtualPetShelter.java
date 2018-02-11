@@ -3,6 +3,7 @@ package virtualpet;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class VirtualPetShelter {
 
@@ -105,8 +106,8 @@ public class VirtualPetShelter {
 		});
 	}
 
-	public String getNames() {
-		return "Joey\nPhil\nAuto\nSynth";
+	public Set<String> getNames() {
+		return pets.keySet();
 	}
 
 }
