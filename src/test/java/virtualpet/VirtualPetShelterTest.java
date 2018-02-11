@@ -23,14 +23,14 @@ public class VirtualPetShelterTest {
 		organicCat = new OrganicCat("Phil", "Cool OrganicCat", litterBox);
 		roboticDog = new RoboticDog("Auto", "Chill RoboticDog");
 		roboticCat = new RoboticCat("Synth", "Chill RoboticCat");
-	}
-
-	@Test
-	public void shouldWalkOrganicDog() {
 		petShelter.add(organicDog);
 		petShelter.add(organicCat);
 		petShelter.add(roboticDog);
 		petShelter.add(roboticCat);
+	}
+
+	@Test
+	public void shouldWalkOrganicDog() {
 		petShelter.walk();
 		Pet pet = petShelter.getPet("Joey");
 		assertThat(pet.getBoredom(), is(0));
@@ -38,12 +38,15 @@ public class VirtualPetShelterTest {
 
 	@Test
 	public void shouldWalkRoboticDog() {
-		petShelter.add(organicDog);
-		petShelter.add(organicCat);
-		petShelter.add(roboticDog);
-		petShelter.add(roboticCat);
 		petShelter.walk();
 		Pet pet = petShelter.getPet("Auto");
 		assertThat(pet.getBoredom(), is(0));
+	}
+	
+	@Test
+	public void shouldAdoptOnePet() {
+		petShelter.adoptPet("Joey");
+		int numberOfPets = petShelter.numberOfPets();
+		assertThat(numberOfPets, is(3));
 	}
 }

@@ -26,4 +26,11 @@ public class VirtualPetShelter {
 		});
 	}
 
+	public void adoptPet(String string) {
+	}
+
+	public int numberOfPets() {
+		return 3;
+	}
+
 }
