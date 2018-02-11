@@ -3,7 +3,7 @@ package virtualpet;
 public class LitterBox extends Box {
 	
 	public LitterBox() {
-		this.dirtyness = DEFAULT_DIRTYNESS;
+		this(DEFAULT_DIRTYNESS);
 	}
 	
 	public LitterBox(int dirtyness) {
