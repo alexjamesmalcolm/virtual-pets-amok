@@ -1,5 +1,6 @@
 package virtualpet;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -88,6 +89,16 @@ public class VirtualPetShelter {
 
 	public int numberOfCages() {
 		return cages.size();
+	}
+
+	public void cleanCages() {
+		cages.forEach((petName, cage) -> {
+			cage.clean();
+		});
+	}
+
+	public Collection<Cage> getCages() {
+		return cages.values();
 	}
 
 }

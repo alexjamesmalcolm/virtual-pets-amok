@@ -6,6 +6,8 @@ import static virtualpet.Box.DEFAULT_DIRTYNESS;
 import static virtualpet.Pet.BOREDOM_PER_TICK;
 import static virtualpet.Pet.DEFAULT_BOREDOM;
 
+import java.util.Collection;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -140,5 +142,15 @@ public class VirtualPetShelterTest {
 		petShelter.add(new OrganicDog("anne", "Is okay"));
 		int numberOfCages = petShelter.numberOfCages();
 		assertThat(numberOfCages, is(2));
+	}
+	
+	@Test
+	public void shouldCleanCages() {
+		petShelter.add(new OrganicDog("anne", "Is okay"));
+		petShelter.cleanCages();
+		Collection<Cage> cages = petShelter.getCages();
+		for(Cage cage : cages) {
+			assertThat(cage.getDirtyness(), is(0));
+		}
 	}
 }
