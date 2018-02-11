@@ -43,7 +43,11 @@ public class VirtualPetShelter {
 	}
 
 	public void feed() {
-		((Organic) pets.get("Joey")).feed();
+		pets.forEach((name, pet) -> {
+			if (pet instanceof Organic) {
+				((Organic) pet).feed();
+			}
+		});
 	}
 
 }
