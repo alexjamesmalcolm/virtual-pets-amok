@@ -218,4 +218,11 @@ public class OrganicDogTest {
 		int boredom = joey.getBoredom();
 		assertThat(boredom, is(0));
 	}
+	
+	@Test
+	public void shouldHaveWalkReduceWaste() {
+		joey.walk();
+		int waste = joey.getWaste();
+		assertThat(waste, is(0));
+	}
 }

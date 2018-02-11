@@ -45,6 +45,7 @@ public class OrganicDog extends Organic implements Walkable{
 	@Override
 	public void walk() {
 		boredom = 0;
+		waste = 0;
 	}
 
 }
