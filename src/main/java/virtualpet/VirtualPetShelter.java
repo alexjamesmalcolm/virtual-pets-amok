@@ -26,11 +26,12 @@ public class VirtualPetShelter {
 		});
 	}
 
-	public void adoptPet(String string) {
+	public void adoptPet(String name) {
+		pets.remove(name);
 	}
 
 	public int numberOfPets() {
-		return 3;
+		return pets.size();
 	}
 
 }

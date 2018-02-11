@@ -49,4 +49,12 @@ public class VirtualPetShelterTest {
 		int numberOfPets = petShelter.numberOfPets();
 		assertThat(numberOfPets, is(3));
 	}
+	
+	@Test
+	public void shouldAdoptTwoPets() {
+		petShelter.adoptPet("Joey");
+		petShelter.adoptPet("Auto");
+		int numberOfPets = petShelter.numberOfPets();
+		assertThat(numberOfPets, is(2));
+	}
 }
