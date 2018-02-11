@@ -20,7 +20,7 @@ public class VirtualPetShelter {
 
 	public void walk() {
 		pets.forEach((name, pet) -> {
-			if(pet instanceof Walkable) {
+			if (pet instanceof Walkable) {
 				((Walkable) pet).walk();
 			}
 		});
@@ -35,7 +35,11 @@ public class VirtualPetShelter {
 	}
 
 	public void oilAllRobots() {
-		((Robotic) getPet("Synth")).oil();
+		pets.forEach((name, pet) -> {
+			if (pet instanceof Robotic) {
+				((Robotic) pet).oil();
+			}
+		});
 	}
 
 }

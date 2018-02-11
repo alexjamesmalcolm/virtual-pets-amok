@@ -64,4 +64,11 @@ public class VirtualPetShelterTest {
 		int dryness = ((Robotic) petShelter.getPet("Synth")).getDryness();
 		assertThat(dryness, is(0));
 	}
+	
+	@Test
+	public void shouldOilRoboticDog() {
+		petShelter.oilAllRobots();
+		int dryness = ((Robotic) petShelter.getPet("Auto")).getDryness();
+		assertThat(dryness, is(0));
+	}
 }
