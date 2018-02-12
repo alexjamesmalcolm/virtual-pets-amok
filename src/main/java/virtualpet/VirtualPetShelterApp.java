@@ -38,7 +38,9 @@ public class VirtualPetShelterApp {
 				shelter.water();
 			} else if (choice.equals("3")) {
 				System.out.println("These are the pets you can play with: ");
-				System.out.println(shelter.getNames());
+				shelter.getNamesAndDescriptions().forEach(text -> {
+					System.out.println(text);
+				});
 				System.out.println("Enter the name of the pet you want to play with: ");
 				String name = input.nextLine();
 				shelter.play(name);
