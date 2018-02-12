@@ -175,7 +175,7 @@ public class VirtualPetShelterTest {
 		String message = line1;
 		assertThat(status, is(message));
 	}
-	
+
 	@Test
 	public void shouldGetStatusOrganicDog() {
 		VirtualPetShelter underTest = new VirtualPetShelter(litterBox);
@@ -187,13 +187,16 @@ public class VirtualPetShelterTest {
 		assertThat(status, is(message));
 	}
 
-	// petShelter.addPet(joey);
-	// petShelter.addPet(tommy);
-	// String line1 = "Name\t|Hunger\t|Thirst\t|Boredom\n";
-	// String line2 = "--------|-------|-------|-------\n";
-	// String line3 = "Joey\t|50\t|50\t|50\n";
-	// String line4 = "Tommy\t|50\t|50\t|50\n";
-	// String message = line1 + line2 + line3 + line4;
-	// String actual = petShelter.toString();
-	// assertEquals(message, actual);
+	@Test
+	public void shouldGetStatusOrganicCat() {
+		VirtualPetShelter underTest = new VirtualPetShelter(litterBox);
+		underTest.add(organicDog);
+		underTest.add(organicCat);
+		String status = underTest.status();
+		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|dryness\n";
+		String line2 = "Joey\t|OrgDog\t|100\t|20\t|25\t|25\t|25\t|N/A\n";
+		String line3 = "Phil\t|OrgCat\t|100\t|20\t|20\t|30\t|40\t|N/A\n";
+		String message = line1 + line2 + line3;
+		assertThat(status, is(message));
+	}
 }

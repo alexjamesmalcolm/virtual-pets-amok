@@ -114,10 +114,15 @@ public class VirtualPetShelter {
 		String tab = "\t|";
 		String result = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|dryness\n";
 		for (Pet pet : getPets()) {
-			Organic organicDog = (Organic) pet;
-			result += organicDog.getName() + tab + "OrgDog" + tab + organicDog.getHealth() + tab
-					+ organicDog.getBoredom() + tab + organicDog.getHunger() + tab + organicDog.getThirst() + tab
-					+ organicDog.getWaste() + tab + "N/A" + "\n";
+			String type = "";
+			if (pet instanceof OrganicDog) {
+				type = "OrgDog";
+			} else {
+				type = "OrgCat";
+			}
+			Organic organic = (Organic) pet;
+			result += organic.getName() + tab + type + tab + organic.getHealth() + tab + organic.getBoredom() + tab
+					+ organic.getHunger() + tab + organic.getThirst() + tab + organic.getWaste() + tab + "N/A" + "\n";
 		}
 		System.out.println(result);
 		return result;
