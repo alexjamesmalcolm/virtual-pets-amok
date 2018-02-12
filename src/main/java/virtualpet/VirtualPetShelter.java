@@ -119,8 +119,10 @@ public class VirtualPetShelter {
 				type = "OrgDog";
 			} else if (pet instanceof OrganicCat) {
 				type = "OrgCat";
-			} else {
+			} else if (pet instanceof RoboticDog) {
 				type = "RobDog";
+			} else {
+				type = "RobCat";
 			}
 			if (pet instanceof Organic) {
 				Organic organic = (Organic) pet;
