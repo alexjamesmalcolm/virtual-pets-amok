@@ -4,7 +4,7 @@ public abstract class Pet {
 
 	protected static final int DEFAULT_HEALTH = 100;
 	protected static final int DEFAULT_BOREDOM = 20;
-	protected static final int BOREDOM_PER_TICK = 1;
+	protected static final int BOREDOM_PER_TICK = 5;
 	protected String name;
 	protected String description;
 	protected int health;

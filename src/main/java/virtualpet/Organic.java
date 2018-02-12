@@ -3,9 +3,9 @@ package virtualpet;
 public abstract class Organic extends Pet {
 
 	protected static final int HUNGER_TO_THIRST = 8;
-	protected static final int HUNGER_PER_TICK = 1;
-	protected static final int THIRST_PER_TICK = 1;
-	protected static final int HUNGER_TO_WASTE = 4;
+	protected static final int HUNGER_PER_TICK = 6;
+	protected static final int THIRST_PER_TICK = 10;
+	protected static final int HUNGER_TO_WASTE = 8;
 	protected static final int THIRST_TO_WASTE = 3;
 	protected static final int WASTE_TO_DIRTYNESS = 5;
 	protected static final int DEFAULT_HUNGER = 25;
