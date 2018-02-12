@@ -1,6 +1,6 @@
 package virtualpet;
 
-public class OrganicDog extends Organic implements Walkable{
+public class OrganicDog extends Organic implements Walkable {
 
 	private Cage cage;
 

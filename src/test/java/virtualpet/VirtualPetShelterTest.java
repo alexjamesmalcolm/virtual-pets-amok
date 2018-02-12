@@ -200,7 +200,7 @@ public class VirtualPetShelterTest {
 		String message = line1 + line2 + line3;
 		assertThat(status, is(message));
 	}
-	
+
 	@Test
 	public void shouldGetStatusRoboticDog() {
 		VirtualPetShelter underTest = new VirtualPetShelter(litterBox);
@@ -215,7 +215,7 @@ public class VirtualPetShelterTest {
 		String message = line1 + line2 + line3 + line4;
 		assertThat(status, is(message));
 	}
-	
+
 	@Test
 	public void shouldGetStatusRoboticCat() {
 		VirtualPetShelter underTest = new VirtualPetShelter(litterBox);

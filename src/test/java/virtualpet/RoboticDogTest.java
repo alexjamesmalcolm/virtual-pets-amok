@@ -137,15 +137,15 @@ public class RoboticDogTest {
 		int health = underTest.getHealth();
 		assertThat(health, is(80));
 	}
-	
+
 	@Test
 	public void shouldHaveTickDecreaseHealthIfBored() {
 		RoboticDog underTest = new RoboticDog("", "", 130, 0);
 		underTest.tick();
 		int health = underTest.getHealth();
-		assertThat(health, is (70));
+		assertThat(health, is(70));
 	}
-	
+
 	@Test
 	public void shouldHaveTickIncreaseHealthIfNothingsWrong() {
 		RoboticDog underTest = new RoboticDog("", "", 100, 100);
