@@ -242,4 +242,12 @@ public class OrganicDogTest {
 		boolean status = underTest.isAlive();
 		assertThat(status, is(false));
 	}
+
+	@Test
+	public void shouldBeAliveIfHealthisOne() {
+		OrganicDog underTest = new OrganicDog("Joey", "Cool", 199, 0, 0, 0, new Cage());
+		underTest.tick();
+		boolean status = underTest.isAlive();
+		assertThat(status, is(true));
+	}
 }
