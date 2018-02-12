@@ -1,5 +1,6 @@
 package virtualpet;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +38,22 @@ public class VirtualPetShelter {
 
 	public int getDirtyness() {
 		return litterBox.getDirtyness();
+	}
+
+	public Set<String> getNames() {
+		return pets.keySet();
+	}
+
+	public LitterBox getLitterBox() {
+		return litterBox;
+	}
+
+	public Collection<String> getNamesAndDescriptions() {
+		Collection<String> result = new ArrayList<>();
+		for (Pet pet : getPets()) {
+			result.add(pet.getName() + " | " + pet.getDescription());
+		}
+		return result;
 	}
 
 	public VirtualPetShelter(LitterBox litterBox) {
@@ -106,10 +123,6 @@ public class VirtualPetShelter {
 		});
 	}
 
-	public Set<String> getNames() {
-		return pets.keySet();
-	}
-
 	public String status() {
 		String tab = "\t|";
 		String result = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|Dryness|Dirtyness\n";
@@ -136,10 +149,6 @@ public class VirtualPetShelter {
 			}
 		}
 		return result;
-	}
-
-	public LitterBox getLitterBox() {
-		return litterBox;
 	}
 
 }

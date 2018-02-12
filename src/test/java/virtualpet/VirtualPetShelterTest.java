@@ -232,4 +232,17 @@ public class VirtualPetShelterTest {
 		String message = line1 + line2 + line3 + line4 + line5;
 		assertEquals(message, status);
 	}
+
+	@Test
+	public void shouldGetDescriptions() {
+		Collection<String> check = petShelter.getNamesAndDescriptions();
+		assertThat(check, containsInAnyOrder("Joey | Cool OrganicDog", "Phil | Cool OrganicCat",
+				"Auto | Chill RoboticDog", "Synth | Chill RoboticCat"));
+	}
+
+	// @Test
+	// public void shouldGetNames() {
+	// Collection<String> names = petShelter.getNames();
+	// assertThat(names, is(containsInAnyOrder("Joey", "Phil", "Auto", "Synth")));
+	// }
 }
