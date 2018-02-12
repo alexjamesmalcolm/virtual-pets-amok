@@ -110,4 +110,17 @@ public class VirtualPetShelter {
 		return pets.keySet();
 	}
 
+	public String status() {
+		String tab = "\t|";
+		String result = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|dryness\n";
+		for (Pet pet : getPets()) {
+			Organic organicDog = (Organic) pet;
+			result += organicDog.getName() + tab + "OrgDog" + tab + organicDog.getHealth() + tab
+					+ organicDog.getBoredom() + tab + organicDog.getHunger() + tab + organicDog.getThirst() + tab
+					+ organicDog.getWaste() + tab + "N/A" + "\n";
+		}
+		System.out.println(result);
+		return result;
+	}
+
 }

@@ -16,7 +16,7 @@ public class VirtualPetShelterTest {
 
 	private VirtualPetShelter petShelter;
 	private LitterBox litterBox;
-	private OrganicDog organicDog;
+	private Pet organicDog;
 	private RoboticDog roboticDog;
 	private OrganicCat organicCat;
 	private RoboticCat roboticCat;
@@ -166,4 +166,34 @@ public class VirtualPetShelterTest {
 		Collection<String> names = petShelter.getNames();
 		assertThat(names, is(containsInAnyOrder("Joey", "Phil", "Auto", "Synth")));
 	}
+
+	@Test
+	public void shouldGetStatusNoPets() {
+		VirtualPetShelter underTest = new VirtualPetShelter(litterBox);
+		String status = underTest.status();
+		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|dryness\n";
+		String message = line1;
+		assertThat(status, is(message));
+	}
+	
+	@Test
+	public void shouldGetStatusOrganicDog() {
+		VirtualPetShelter underTest = new VirtualPetShelter(litterBox);
+		underTest.add(organicDog);
+		String status = underTest.status();
+		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|dryness\n";
+		String line2 = "Joey\t|OrgDog\t|100\t|20\t|25\t|25\t|25\t|N/A\n";
+		String message = line1 + line2;
+		assertThat(status, is(message));
+	}
+
+	// petShelter.addPet(joey);
+	// petShelter.addPet(tommy);
+	// String line1 = "Name\t|Hunger\t|Thirst\t|Boredom\n";
+	// String line2 = "--------|-------|-------|-------\n";
+	// String line3 = "Joey\t|50\t|50\t|50\n";
+	// String line4 = "Tommy\t|50\t|50\t|50\n";
+	// String message = line1 + line2 + line3 + line4;
+	// String actual = petShelter.toString();
+	// assertEquals(message, actual);
 }
