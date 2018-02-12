@@ -48,8 +48,4 @@ public class OrganicDog extends Organic implements Walkable{
 		waste = 0;
 	}
 
-	public boolean isAlive() {
-		return health > 0;
-	}
-
 }

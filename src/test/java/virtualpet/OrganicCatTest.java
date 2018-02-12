@@ -102,7 +102,7 @@ public class OrganicCatTest {
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + 130));
 	}
-	
+
 	@Test
 	public void shouldHaveTickUseLitterBox70() {
 		OrganicCat underTest = new OrganicCat("Joey", "Cool", litterBox, 0, 0, 0, 70);
@@ -110,7 +110,7 @@ public class OrganicCatTest {
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + 70));
 	}
-	
+
 	@Test
 	public void shouldHaveTickNotUseLitterBox69() {
 		OrganicCat underTest = new OrganicCat("Joey", "Cool", litterBox, 0, 0, 0, 69);
@@ -118,4 +118,13 @@ public class OrganicCatTest {
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS));
 	}
+
+	@Test
+	public void shouldBeDeadIfHealhIsZero() {
+		OrganicCat underTest = new OrganicCat("Joey", "Cool", litterBox, 201, 0, 0, 0);
+		underTest.tick();
+		boolean status = underTest.isAlive();
+		assertThat(status, is(false));
+	}
+
 }

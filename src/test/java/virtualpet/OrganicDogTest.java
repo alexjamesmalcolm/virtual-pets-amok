@@ -132,7 +132,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldGetDirtyness() {
-		OrganicDog underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 0, new Cage());
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS));
 	}
@@ -180,14 +180,14 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveNameJoey() {
-		OrganicDog underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 0, new Cage());
 		String name = underTest.getName();
 		assertThat(name, is("Joey"));
 	}
 
 	@Test
 	public void shouldHaveDescriptionCool() {
-		OrganicDog underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 0, new Cage());
 		String description = underTest.getDescription();
 		assertThat(description, is("Cool"));
 	}
@@ -206,7 +206,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveTickUseBathroom110() {
-		OrganicDog underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 110, new Cage());
+		Organic underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 110, new Cage());
 		underTest.tick();
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + 10 / WASTE_TO_DIRTYNESS));
@@ -229,7 +229,7 @@ public class OrganicDogTest {
 	@Test
 	public void shouldHaveTickReduceHealthIfDirty() {
 		Cage cage = new Cage(120);
-		OrganicDog underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 0, cage);
+		Organic underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 0, cage);
 		underTest.tick();
 		int health = underTest.getHealth();
 		assertThat(health, is(80));
@@ -237,7 +237,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldBeDeadIfHealth0() {
-		OrganicDog underTest = new OrganicDog("Joey", "Cool", 140, 140, 140, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", "Cool", 140, 140, 140, 0, new Cage());
 		underTest.tick();
 		boolean status = underTest.isAlive();
 		assertThat(status, is(false));
@@ -245,7 +245,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldBeAliveIfHealthisOne() {
-		OrganicDog underTest = new OrganicDog("Joey", "Cool", 199, 0, 0, 0, new Cage());
+		Organic underTest = new OrganicDog("Joey", "Cool", 199, 0, 0, 0, new Cage());
 		underTest.tick();
 		boolean status = underTest.isAlive();
 		assertThat(status, is(true));
