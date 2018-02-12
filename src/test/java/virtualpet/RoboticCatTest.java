@@ -23,23 +23,30 @@ public class RoboticCatTest {
 
 	@Test
 	public void shouldHaveDryness80() {
-		RoboticCat underTest = new RoboticCat("Joey", "Cool", 100, 20, 80);
+		RoboticCat underTest = new RoboticCat("Joey", "Cool", 20, 80);
 		int dryness = underTest.getDryness();
 		assertThat(dryness, is(80));
 	}
 
 	@Test
 	public void shouldHaveBoredom20() {
-		RoboticCat underTest = new RoboticCat("Joey", "Cool", 100, 20, 80);
+		RoboticCat underTest = new RoboticCat("Joey", "Cool", 20, 80);
 		int boredom = underTest.getBoredom();
 		assertThat(boredom, is(20));
 	}
 
 	@Test
 	public void shouldHaveHealth100() {
-		RoboticCat underTest = new RoboticCat("Joey", "Cool", 100, 0, 0);
+		RoboticCat underTest = new RoboticCat("Joey", "Cool", 0, 0);
 		int health = underTest.getHealth();
 		assertThat(health, is(100));
 	}
-	
+
+	@Test
+	public void shouldBeDeadIfHealthIsZero() {
+		RoboticCat underTest = new RoboticCat("Joey", "Cool", 200, 0);
+		underTest.tick();
+		boolean status = underTest.isAlive();
+		assertThat(status, is(false));
+	}
 }

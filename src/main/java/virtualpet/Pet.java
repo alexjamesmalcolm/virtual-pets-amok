@@ -32,4 +32,8 @@ public abstract class Pet {
 		boredom = 0;
 	}
 
+	public boolean isAlive() {
+		return health > 0;
+	}
+
 }

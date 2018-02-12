@@ -121,10 +121,18 @@ public class OrganicCatTest {
 
 	@Test
 	public void shouldBeDeadIfHealhIsZero() {
-		OrganicCat underTest = new OrganicCat("Joey", "Cool", litterBox, 201, 0, 0, 0);
+		OrganicCat underTest = new OrganicCat("Joey", "Cool", litterBox, 200, 0, 0, 0);
 		underTest.tick();
 		boolean status = underTest.isAlive();
 		assertThat(status, is(false));
+	}
+
+	@Test
+	public void shouldBeAliveIfHealthIsOne() {
+		OrganicCat underTest = new OrganicCat("Joey", "Cool", litterBox, 199, 0, 0, 0);
+		underTest.tick();
+		boolean status = underTest.isAlive();
+		assertThat(status, is(true));
 	}
 
 }

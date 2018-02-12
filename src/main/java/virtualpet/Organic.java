@@ -65,8 +65,4 @@ public abstract class Organic extends Pet {
 
 	abstract int getDirtyness();
 
-	public boolean isAlive() {
-		return health > 0;
-	}
-
 }
