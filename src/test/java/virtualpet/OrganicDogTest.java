@@ -211,27 +211,35 @@ public class OrganicDogTest {
 		int dirtyness = underTest.getDirtyness();
 		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + 10 / WASTE_TO_DIRTYNESS));
 	}
-	
+
 	@Test
 	public void shouldHaveWalkReduceBoredom() {
 		joey.walk();
 		int boredom = joey.getBoredom();
 		assertThat(boredom, is(0));
 	}
-	
+
 	@Test
 	public void shouldHaveWalkReduceWaste() {
 		joey.walk();
 		int waste = joey.getWaste();
 		assertThat(waste, is(0));
 	}
-	
+
 	@Test
 	public void shouldHaveTickReduceHealthIfDirty() {
 		Cage cage = new Cage(120);
-		OrganicDog underTest = new OrganicDog("Joey", "Cool",0,0,0,0,cage);
+		OrganicDog underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 0, cage);
 		underTest.tick();
 		int health = underTest.getHealth();
 		assertThat(health, is(80));
+	}
+
+	@Test
+	public void shouldBeDeadIfHealth0() {
+		OrganicDog underTest = new OrganicDog("Joey", "Cool", 140, 140, 140, 0, new Cage());
+		underTest.tick();
+		boolean status = underTest.isAlive();
+		assertThat(status, is(false));
 	}
 }
