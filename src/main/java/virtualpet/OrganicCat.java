@@ -17,6 +17,7 @@ public class OrganicCat extends Organic {
 		this.thirst = thirst;
 		this.waste = waste;
 		this.litterBox = litterBox;
+		this.health = 100;
 	}
 
 	public LitterBox getLitterBox() {

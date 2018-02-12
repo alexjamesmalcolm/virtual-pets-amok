@@ -135,4 +135,11 @@ public class OrganicCatTest {
 		assertThat(status, is(true));
 	}
 
+	@Test
+	public void shouldHaveHealth100() {
+		OrganicCat underTest = new OrganicCat("Joey", "Cool", litterBox);
+		int health = underTest.getHealth();
+		assertThat(health, is(100));
+	}
+
 }
