@@ -172,7 +172,7 @@ public class VirtualPetShelterTest {
 	public void shouldGetStatusNoPets() {
 		VirtualPetShelter underTest = new VirtualPetShelter(litterBox);
 		String status = underTest.status();
-		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|dryness\n";
+		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|Dryness|Dirtyness\n";
 		String message = line1;
 		assertThat(status, is(message));
 	}
@@ -182,7 +182,7 @@ public class VirtualPetShelterTest {
 		VirtualPetShelter underTest = new VirtualPetShelter(litterBox);
 		underTest.add(organicDog);
 		String status = underTest.status();
-		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|dryness\n";
+		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|Dryness|Dirtyness\n";
 		String line2 = "Joey\t|OrgDog\t|100\t|20\t|25\t|25\t|25\t|N/A\n";
 		String message = line1 + line2;
 		assertThat(status, is(message));
@@ -194,7 +194,7 @@ public class VirtualPetShelterTest {
 		underTest.add(organicDog);
 		underTest.add(organicCat);
 		String status = underTest.status();
-		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|dryness\n";
+		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|Dryness|Dirtyness\n";
 		String line2 = "Joey\t|OrgDog\t|100\t|20\t|25\t|25\t|25\t|N/A\n";
 		String line3 = "Phil\t|OrgCat\t|100\t|20\t|20\t|30\t|40\t|N/A\n";
 		String message = line1 + line2 + line3;
@@ -208,7 +208,7 @@ public class VirtualPetShelterTest {
 		underTest.add(organicCat);
 		underTest.add(roboticDog);
 		String status = underTest.status();
-		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|dryness\n";
+		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|Dryness|Dirtyness\n";
 		String line2 = "Auto\t|RobDog\t|100\t|20\t|N/A\t|N/A\t|N/A\t|20\n";
 		String line3 = "Joey\t|OrgDog\t|100\t|20\t|25\t|25\t|25\t|N/A\n";
 		String line4 = "Phil\t|OrgCat\t|100\t|20\t|20\t|30\t|40\t|N/A\n";
@@ -224,13 +224,12 @@ public class VirtualPetShelterTest {
 		underTest.add(roboticDog);
 		underTest.add(roboticCat);
 		String status = underTest.status();
-		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|dryness\n";
+		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|Dryness|Dirtyness\n";
 		String line2 = "Auto\t|RobDog\t|100\t|20\t|N/A\t|N/A\t|N/A\t|20\n";
 		String line3 = "Synth\t|RobCat\t|100\t|20\t|N/A\t|N/A\t|N/A\t|20\n";
 		String line4 = "Joey\t|OrgDog\t|100\t|20\t|25\t|25\t|25\t|N/A\n";
 		String line5 = "Phil\t|OrgCat\t|100\t|20\t|20\t|30\t|40\t|N/A\n";
 		String message = line1 + line2 + line3 + line4 + line5;
-//		assertThat(status, is(message));
 		Assert.assertEquals(message, status);
 	}
 }

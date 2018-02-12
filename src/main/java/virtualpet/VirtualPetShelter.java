@@ -112,7 +112,7 @@ public class VirtualPetShelter {
 
 	public String status() {
 		String tab = "\t|";
-		String result = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|dryness\n";
+		String result = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|Dryness|Dirtyness\n";
 		for (Pet pet : getPets()) {
 			String type = "";
 			if (pet instanceof OrganicDog) {
@@ -135,8 +135,11 @@ public class VirtualPetShelter {
 						+ "N/A" + tab + "N/A" + tab + "N/A" + tab + robot.getDryness() + "\n";
 			}
 		}
-		System.out.println(result);
 		return result;
+	}
+
+	public LitterBox getLitterBox() {
+		return litterBox;
 	}
 
 }
