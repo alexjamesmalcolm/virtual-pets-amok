@@ -239,10 +239,4 @@ public class VirtualPetShelterTest {
 		assertThat(check, containsInAnyOrder("Joey | Cool OrganicDog", "Phil | Cool OrganicCat",
 				"Auto | Chill RoboticDog", "Synth | Chill RoboticCat"));
 	}
-
-	// @Test
-	// public void shouldGetNames() {
-	// Collection<String> names = petShelter.getNames();
-	// assertThat(names, is(containsInAnyOrder("Joey", "Phil", "Auto", "Synth")));
-	// }
 }
