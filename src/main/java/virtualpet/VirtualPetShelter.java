@@ -127,12 +127,12 @@ public class VirtualPetShelter {
 			if (pet instanceof Organic) {
 				Organic organic = (Organic) pet;
 				result += organic.getName() + tab + type + tab + organic.getHealth() + tab + organic.getBoredom() + tab
-						+ organic.getHunger() + tab + organic.getThirst() + tab + organic.getWaste() + tab + "N/A"
-						+ "\n";
+						+ organic.getHunger() + tab + organic.getThirst() + tab + organic.getWaste() + tab + "N/A" + tab
+						+ organic.getDirtyness() + "\n";
 			} else {
 				Robotic robot = (Robotic) pet;
 				result += robot.getName() + tab + type + tab + robot.getHealth() + tab + robot.getBoredom() + tab
-						+ "N/A" + tab + "N/A" + tab + "N/A" + tab + robot.getDryness() + "\n";
+						+ "N/A" + tab + "N/A" + tab + "N/A" + tab + robot.getDryness() + tab + "N/A" + "\n";
 			}
 		}
 		return result;
