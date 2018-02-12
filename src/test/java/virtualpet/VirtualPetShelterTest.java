@@ -199,4 +199,19 @@ public class VirtualPetShelterTest {
 		String message = line1 + line2 + line3;
 		assertThat(status, is(message));
 	}
+	
+	@Test
+	public void shouldGetStatusRoboticDog() {
+		VirtualPetShelter underTest = new VirtualPetShelter(litterBox);
+		underTest.add(organicDog);
+		underTest.add(organicCat);
+		underTest.add(roboticDog);
+		String status = underTest.status();
+		String line1 = "Name\t|Type\t|Health\t|Boredom|Hunger\t|Thirst\t|Waste\t|dryness\n";
+		String line3 = "Joey\t|OrgDog\t|100\t|20\t|25\t|25\t|25\t|N/A\n";
+		String line4 = "Phil\t|OrgCat\t|100\t|20\t|20\t|30\t|40\t|N/A\n";
+		String line2 = "Auto\t|RobDog\t|100\t|20\t|N/A\t|N/A\t|N/A\t|20\n";
+		String message = line1 + line2 + line3 + line4;
+		assertThat(status, is(message));
+	}
 }

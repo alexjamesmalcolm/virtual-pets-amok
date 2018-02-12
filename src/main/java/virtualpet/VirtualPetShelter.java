@@ -117,12 +117,21 @@ public class VirtualPetShelter {
 			String type = "";
 			if (pet instanceof OrganicDog) {
 				type = "OrgDog";
-			} else {
+			} else if (pet instanceof OrganicCat) {
 				type = "OrgCat";
+			} else {
+				type = "RobDog";
 			}
-			Organic organic = (Organic) pet;
-			result += organic.getName() + tab + type + tab + organic.getHealth() + tab + organic.getBoredom() + tab
-					+ organic.getHunger() + tab + organic.getThirst() + tab + organic.getWaste() + tab + "N/A" + "\n";
+			if (pet instanceof Organic) {
+				Organic organic = (Organic) pet;
+				result += organic.getName() + tab + type + tab + organic.getHealth() + tab + organic.getBoredom() + tab
+						+ organic.getHunger() + tab + organic.getThirst() + tab + organic.getWaste() + tab + "N/A"
+						+ "\n";
+			} else {
+				Robotic robot = (Robotic) pet;
+				result += robot.getName() + tab + type + tab + robot.getHealth() + tab + robot.getBoredom() + tab
+						+ "N/A" + tab + "N/A" + tab + "N/A" + tab + robot.getDryness() + "\n";
+			}
 		}
 		System.out.println(result);
 		return result;
