@@ -7,7 +7,7 @@ public abstract class Organic extends Pet {
 	protected static final int THIRST_PER_TICK = 1;
 	protected static final int HUNGER_TO_WASTE = 4;
 	protected static final int THIRST_TO_WASTE = 3;
-	protected static final int WASTE_TO_DIRTYNESS = 1;
+	protected static final int WASTE_TO_DIRTYNESS = 5;
 	protected static final int DEFAULT_HUNGER = 25;
 	protected static final int DEFAULT_THIRST = 25;
 	protected static final int DEFAULT_WASTE = 25;
@@ -56,8 +56,13 @@ public abstract class Organic extends Pet {
 		if (waste >= 70) {
 			goToBathroom();
 		}
+		if (getDirtyness() > 100) {
+			health -= getDirtyness() - 100;
+		}
 	}
 
 	abstract void goToBathroom();
+
+	abstract int getDirtyness();
 
 }

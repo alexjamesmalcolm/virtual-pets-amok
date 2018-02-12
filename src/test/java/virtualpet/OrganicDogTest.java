@@ -147,7 +147,7 @@ public class OrganicDogTest {
 
 	@Test
 	public void shouldHaveConstructorTakeCage() {
-		Box cage = new Cage(50);
+		Cage cage = new Cage(50);
 		OrganicDog underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 0, cage);
 		underTest.cleanCage();
 		Box returnedCage = underTest.getCage();
@@ -209,7 +209,7 @@ public class OrganicDogTest {
 		OrganicDog underTest = new OrganicDog("Joey", "Cool", 0, 0, 0, 110, new Cage());
 		underTest.tick();
 		int dirtyness = underTest.getDirtyness();
-		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + 10));
+		assertThat(dirtyness, is(DEFAULT_DIRTYNESS + 10 / WASTE_TO_DIRTYNESS));
 	}
 	
 	@Test
@@ -224,5 +224,14 @@ public class OrganicDogTest {
 		joey.walk();
 		int waste = joey.getWaste();
 		assertThat(waste, is(0));
+	}
+	
+	@Test
+	public void shouldHaveTickReduceHealthIfDirty() {
+		Cage cage = new Cage(120);
+		OrganicDog underTest = new OrganicDog("Joey", "Cool",0,0,0,0,cage);
+		underTest.tick();
+		int health = underTest.getHealth();
+		assertThat(health, is(80));
 	}
 }
