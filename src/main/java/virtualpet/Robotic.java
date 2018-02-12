@@ -2,9 +2,9 @@ package virtualpet;
 
 public abstract class Robotic extends Pet {
 
-	protected static final int DRYNESS_PER_TICK = 15;
-	protected static final int DEFAULT_DRYNESS = 20;
-	protected int dryness;
+	static final int DRYNESS_PER_TICK = 15;
+	static final int DEFAULT_DRYNESS = 20;
+	int dryness;
 
 	public int getDryness() {
 		return dryness;

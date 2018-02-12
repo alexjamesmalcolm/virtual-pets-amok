@@ -11,9 +11,9 @@ public abstract class Organic extends Pet {
 	protected static final int DEFAULT_HUNGER = 25;
 	protected static final int DEFAULT_THIRST = 25;
 	protected static final int DEFAULT_WASTE = 25;
-	protected int hunger;
-	protected int thirst;
-	protected int waste;
+	int hunger;
+	int thirst;
+	int waste;
 
 	public int getHunger() {
 		return hunger;

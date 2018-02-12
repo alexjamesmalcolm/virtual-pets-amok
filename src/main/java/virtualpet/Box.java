@@ -3,7 +3,7 @@ package virtualpet;
 public abstract class Box {
 
 	public static final int DEFAULT_DIRTYNESS = 10;
-	protected int dirtyness;
+	int dirtyness;
 
 	public int getDirtyness() {
 		return dirtyness;
