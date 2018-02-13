@@ -9,34 +9,45 @@ public class VirtualPetShelterApp {
 		LitterBox litterBox = new LitterBox();
 		VirtualPetShelter shelter = new VirtualPetShelter(litterBox);
 		while (true) {
-			if (shelter.numberOfPets() > 0) {
+			boolean isMoreThanZeroPets = shelter.numberOfPets() > 0;
+			boolean isMoreThanZeroOrganicPets = shelter.numberOfOrganicPets() > 0;
+			boolean isMoreThanZeroWalkablePets = shelter.numberOfWalkablePets() > 0;
+			boolean isMoreThanZeroRoboticPets = shelter.numberOfRoboticPets() > 0;
+			if (isMoreThanZeroPets) {
 				System.out.println("This is the status of your pets:\n");
 				System.out.println(shelter.status());
 				System.out.println("What would you like to do next?");
-				System.out.println("1. Feed the Organic pets");
-				System.out.println("2. Water the Organic pets");
+				if (isMoreThanZeroOrganicPets) {
+					System.out.println("1. Feed the Organic pets");
+					System.out.println("2. Water the Organic pets");
+				}
 				System.out.println("3. Play with a pet");
-				System.out.println("4. Walk dogs");
-				System.out.println("5. Oil all robots");
+				if (isMoreThanZeroWalkablePets) {
+					System.out.println("4. Walk dogs");
+				}
+				if (isMoreThanZeroRoboticPets) {
+					System.out.println("5. Oil all robots");
+				}
 				System.out.println("6. Clean all cages");
-				System.out.println("7. Empty litter box");
 				System.out.println("8. Adopt a pet");
+				System.out.println("7. Empty litter box");
 				System.out.println("9. Admit a pet");
 				System.out.println("0. Quit");
 			} else {
+				System.out.println("7. Empty litter box");
 				System.out.println("9. Admit a pet");
 				System.out.println("0. Quit");
 			}
 			shelter.tick();
 			String choice = input.next();
 			input.nextLine();
-			if (choice.equals("1")) {
+			if (choice.equals("1") && isMoreThanZeroOrganicPets) {
 				System.out.println("You feed all the organic pets");
 				shelter.feed();
-			} else if (choice.equals("2")) {
+			} else if (choice.equals("2") && isMoreThanZeroOrganicPets) {
 				System.out.println("You put water in all the organic pet's dishes");
 				shelter.water();
-			} else if (choice.equals("3")) {
+			} else if (choice.equals("3") && isMoreThanZeroPets) {
 				System.out.println("These are the pets you can play with: ");
 				shelter.getNamesAndDescriptions().forEach(text -> {
 					System.out.println(text);
@@ -44,19 +55,19 @@ public class VirtualPetShelterApp {
 				System.out.println("Enter the name of the pet you want to play with: ");
 				String name = input.nextLine();
 				shelter.play(name);
-			} else if (choice.equals("4")) {
+			} else if (choice.equals("4") && isMoreThanZeroWalkablePets) {
 				System.out.println("You walk the dogs");
 				shelter.walk();
-			} else if (choice.equals("5")) {
+			} else if (choice.equals("5") && isMoreThanZeroRoboticPets) {
 				System.out.println("You oil all the robotic pets");
 				shelter.oilAllRobots();
-			} else if (choice.equals("6")) {
+			} else if (choice.equals("6") && isMoreThanZeroPets) {
 				System.out.println("You clean all the cages");
 				shelter.cleanCages();
 			} else if (choice.equals("7")) {
 				System.out.println("You empty the litter box");
 				shelter.emptyLitterBox();
-			} else if (choice.equals("8")) {
+			} else if (choice.equals("8") && isMoreThanZeroPets) {
 				System.out.println("Enter name of pet to adopt: ");
 				String name = input.nextLine();
 				shelter.adoptPet(name);

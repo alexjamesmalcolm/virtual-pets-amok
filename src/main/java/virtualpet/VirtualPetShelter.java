@@ -95,22 +95,9 @@ public class VirtualPetShelter {
 		});
 	}
 
-	public void water() {
-		getPets().forEach(pet -> {
-			if (pet instanceof Organic) {
-				((Organic) pet).water();
-			}
-		});
-	}
-
-	public void play(String name) {
-		getPet(name).play();
-	}
-
 	public void tick() {
-		getPets().forEach(pet -> {
-			pet.tick();
-		});
+		getPets().forEach(pet -> pet.tick());
+		getPets().removeIf(pet -> !pet.isAlive());
 	}
 
 	public void emptyLitterBox() {
@@ -118,9 +105,7 @@ public class VirtualPetShelter {
 	}
 
 	public void cleanCages() {
-		cages.forEach((petName, cage) -> {
-			cage.clean();
-		});
+		cages.forEach((petName, cage) -> cage.clean());
 	}
 
 	public String status() {
@@ -146,6 +131,48 @@ public class VirtualPetShelter {
 				Robotic robot = (Robotic) pet;
 				result += robot.getName() + tab + type + tab + robot.getHealth() + tab + robot.getBoredom() + tab
 						+ "N/A" + tab + "N/A" + tab + "N/A" + tab + robot.getDryness() + tab + "N/A" + "\n";
+			}
+		}
+		return result;
+	}
+
+	public void water() {
+		getPets().forEach(pet -> {
+			if (pet instanceof Organic) {
+				((Organic) pet).water();
+			}
+		});
+	}
+
+	public void play(String name) {
+		getPet(name).play();
+	}
+
+	public int numberOfRoboticPets() {
+		int result = 0;
+		for (Pet pet : getPets()) {
+			if (pet instanceof Robotic) {
+				result++;
+			}
+		}
+		return result;
+	}
+
+	public int numberOfWalkablePets() {
+		int result = 0;
+		for (Pet pet : getPets()) {
+			if (pet instanceof Walkable) {
+				result++;
+			}
+		}
+		return result;
+	}
+
+	public int numberOfOrganicPets() {
+		int result = 0;
+		for (Pet pet : getPets()) {
+			if (pet instanceof Organic) {
+				result++;
 			}
 		}
 		return result;
