@@ -141,5 +141,13 @@ public class OrganicCatTest {
 		int health = underTest.getHealth();
 		assertThat(health, is(100));
 	}
+	
+	@Test
+	public void usingLitterBoxShouldSetWasteToZero() {
+		OrganicCat underTest = new OrganicCat("Joey","",litterBox,0,0,0,90);
+		underTest.useLitterBox();
+		int waste = underTest.getWaste();
+		assertThat(waste, is(0));
+	}
 
 }
